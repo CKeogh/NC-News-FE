@@ -1,11 +1,11 @@
 import React from 'react';
+import {Link} from '@reach/router'
 
-const NavBar = (props) => {
+const NavBar = ({ topics }) => {
     return <nav>
-        <p1>Football</p1>
-        <p1>Coding</p1>
-        <p1>Cooking</p1>
-
+        {topics.map((topic) => {
+            return <Link className="link" key={topic.slug} to={`/${topic.slug}`}>{topic.slug}</Link>
+        })}
     </nav>
 }
 

@@ -1,5 +1,6 @@
 * {
   margin: 2px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .App {
@@ -49,4 +50,10 @@
 .floatBar {
   position: fixed;
   width: 100vw;
+}
+
+.link {
+  margin: 10%;
+  text-decoration: none;
+  font-size: 2em;
 }
