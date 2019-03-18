@@ -1,0 +1,52 @@
+* {
+  margin: 2px;
+}
+
+.App {
+  display: grid;
+  grid-template: 10em 3em 7fr 1fr / 3fr 1fr;
+  grid-template-areas: 
+  'header header'
+  'navBar navBar'
+  'mainContent sideBar'
+  'footer footer';
+  height: 100vh;
+
+}
+
+.header {
+  grid-area: header;
+  border: 0.1em solid rgba(9, 255, 0, 0.473);
+}
+
+.navBar {
+  grid-area: navBar;
+  border: 0.1em solid rgba(255, 0, 55, 0.849);
+}
+
+.mainContent {
+  grid-area: mainContent;
+  border: 0.1em solid rgba(247, 0, 255, 0.473);
+}
+
+.sideBar {
+  grid-area: sideBar;
+  border: 0.1em solid rgba(255, 196, 0, 0.473);
+}
+
+.footer {
+  grid-area: footer;
+  border: 0.1em solid rgba(0, 255, 221, 0.473);
+}
+
+.login {
+  float: right;
+  margin: 0;
+  padding: 20px 10vw;
+  background: rgba(0, 0, 0, 0.384);
+}
+
+.floatBar {
+  position: fixed;
+  width: 100vw;
+}
