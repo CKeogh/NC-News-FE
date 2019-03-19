@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getComments } from '../api';
+import Comment from './Comment';
 
 class CommentsList extends Component {
 
@@ -15,10 +16,7 @@ class CommentsList extends Component {
          <div className="comments">
             <h3>COMMENTS</h3>
             {comments.map(comment => {
-                return <div key={comment.comment_id}>
-                <p>{comment.body}</p>
-                <h5>by {comment.author}</h5>
-                </div>
+                return <Comment key={comment.comment_id}comment={comment}/>
             })}
         </div>
     )

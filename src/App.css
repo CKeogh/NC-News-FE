@@ -112,3 +112,7 @@ ul {
 .comments {
   border: 0.1em solid rgba(170, 18, 25, 0.473);
 }
+
+.comment {
+  border: 0.1em solid rgba(33, 18, 170, 0.432);
+}
