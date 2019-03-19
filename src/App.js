@@ -4,39 +4,37 @@ import NavBar from './components/NavBar';
 import {getTopics} from './api'
 import MainContent from './components/MainContent';
 import { Router } from '@reach/router';
+import Header from './components/Header';
 
 class App extends Component {
 
   state = {
-    topics: [
-      {
-      "slug": "coding",
-      "description": "Code is love, code is life"
-      },
-      {
-      "slug": "football",
-      "description": "FOOTIE!"
-      },
-      {
-      "slug": "cooking",
-      "description": "Hey good looking, what you got cooking?"
-      }
-    ]
+    topics: []
   }
   render() {
+    const {topics} = this.state
     return (
       <div className="App">
         <div className="floatBar">
           <p className="login">login</p>
         </div>
-        <header className="header">Header</header>
-        <NavBar className="navBar" topics={this.state.topics}/>
+
+        <Router>
+          <Header path="/" topic={{slug: 'NC News', description: ''}}/>
+          {topics.map(topic => {
+            return <Header path={`/${topic.slug}`} key={`header_${topic.slug}`}topic={topic}/>
+          })}
+        </Router>
+
+        <NavBar topics={this.state.topics}/>
+
         <Router className="mainContent"> 
           <MainContent path="/" content="All Articles"/>
-          <MainContent path="/football" content="Football"/>
-          <MainContent path="/coding" content="Coding"/>
-          <MainContent path="/cooking"content="Cooking"/>
+          {topics.map(topic => {
+            return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`}content={`${topic.description}`}/>
+          })}
         </Router>
+
         <h1 className="sideBar">sideBar</h1>
         <footer className="footer">Footer</footer>
       </div>
@@ -45,7 +43,11 @@ class App extends Component {
 
   componentDidMount() {
     getTopics()
-      .then(data => console.log(data))
+      .then(topics => {
+        this.setState({
+          topics: topics
+        })
+      })
   }
 }
 
