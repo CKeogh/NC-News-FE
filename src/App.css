@@ -47,6 +47,10 @@
   background: rgba(0, 0, 0, 0.384);
 }
 
+.articleCard {
+  border: 0.1em solid rgba(157, 255, 0, 0.473);
+}
+
 .floatBar {
   position: fixed;
   width: 100vw;
@@ -56,4 +60,17 @@
   margin: 10%;
   text-decoration: none;
   font-size: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 2px;
 }

@@ -5,6 +5,7 @@ import {getTopics} from './api'
 import MainContent from './components/MainContent';
 import { Router } from '@reach/router';
 import Header from './components/Header';
+import FloatBar from './components/FloatBar';
 
 class App extends Component {
 
@@ -15,9 +16,7 @@ class App extends Component {
     const {topics} = this.state
     return (
       <div className="App">
-        <div className="floatBar">
-          <p className="login">login</p>
-        </div>
+        <FloatBar />
 
         <Router className="header">
           <Header path="/" content={{slug: 'NC News', description: ''}}/>

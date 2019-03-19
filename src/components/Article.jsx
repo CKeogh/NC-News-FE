@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getArticle } from '../api'
+import CommentsList from './CommentsList';
 
 class Article extends Component {
 
@@ -10,12 +11,16 @@ class Article extends Component {
   render() {
       const { article } = this.state;
     return (
-      <div className="article">
-        <h3>{article.title}</h3>
-        <h5>by {article.author}</h5>
-        <p>
-        {article.body}
-        </p>
+      <div>
+
+        <div className="article">
+          <h3>{article.title}</h3>
+          <h5>by {article.author}</h5>
+          <p>
+          {article.body}
+          </p>
+        </div>
+        <CommentsList article_id={article.article_id}/>
       </div>
     )
   }

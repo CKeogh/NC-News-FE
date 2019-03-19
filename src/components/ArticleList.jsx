@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from '@reach/router';
 import { getArticles } from '../api'
+import ArticleCard from './ArticleCard';
 
 class ArticleList extends Component {
 
@@ -13,11 +14,7 @@ class ArticleList extends Component {
     return <ul>
         {articles.map(article => {
             return <Link key={article.article_id} to={`/articles/${article.article_id}`}>
-                <li>
-                    <h2>{article.title}</h2>
-                    <h3>{article.author}</h3>
-                    <h4>{article.topic}</h4>
-                </li>
+                <ArticleCard article={article}/>
             </Link>
         })}
     </ul>

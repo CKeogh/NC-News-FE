@@ -11,7 +11,6 @@ class MainContent extends Component {
     articles: []
   }
   render() {
-    // const { articles } = this.state;
     return (
       <Router>
         <ArticleList path="/" topic={this.props.topic}/>
