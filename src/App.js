@@ -6,18 +6,22 @@ import MainContent from './components/MainContent';
 import { Router } from '@reach/router';
 import Header from './components/Header';
 import FloatBar from './components/FloatBar';
+import SideBar from './components/SideBar';
 
 class App extends Component {
 
   state = {
     topics: []
   }
+
   render() {
+
     const {topics} = this.state
+
     return (
       <div className="App">
+        
         <FloatBar />
-
         <Router className="header">
           <Header path="/" content={{slug: 'NC News', description: ''}}/>
           {topics.map(topic => {
@@ -36,7 +40,7 @@ class App extends Component {
           <MainContent path="/articles/*"/>
         </Router>
 
-        <h1 className="sideBar">sideBar</h1>
+        <SideBar />
         <footer className="footer">Footer</footer>
       </div>
     );

@@ -11,12 +11,12 @@ class MainContent extends Component {
     articles: []
   }
   render() {
+
     return (
       <Router>
         <ArticleList path="/" topic={this.props.topic}/>
         <Article path="/:article_id"/>
       </Router>
-
     )
   }
 

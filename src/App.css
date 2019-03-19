@@ -49,6 +49,40 @@
 
 .articleCard {
   border: 0.1em solid rgba(157, 255, 0, 0.473);
+  display: grid;
+  grid-template: 2fr 1fr 1fr / 6fr 2fr;
+  grid-template-areas: 
+  'title title'
+  'author article_info'
+  'topic article_info'
+}
+
+.articleCard-title {
+  grid-area: title;
+}
+
+.articleCard-author {
+  grid-area: author;
+}
+
+.articleCard-topic {
+  grid-area: topic;
+}
+
+.articleInfo {
+  grid-area: article_info;
+}
+
+.articleCard-votes {
+  grid-area: votes;
+}
+
+.articleCard-comment_count {
+  grid-area: comment_count;
+}
+
+.articleCard-created_at {
+  grid-area: created_at;
 }
 
 .floatBar {
@@ -73,4 +107,8 @@ li {
 
 ul {
   padding: 2px;
+}
+
+.comments {
+  border: 0.1em solid rgba(170, 18, 25, 0.473);
 }

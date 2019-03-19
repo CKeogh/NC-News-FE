@@ -8,7 +8,9 @@ class CommentsList extends Component {
     }
 
   render() {
+
     const { comments } = this.state;
+    
     return (
          <div className="comments">
             <h3>COMMENTS</h3>

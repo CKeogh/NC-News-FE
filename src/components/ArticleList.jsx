@@ -10,7 +10,9 @@ class ArticleList extends Component {
       }
 
   render() {
-      const { articles } = this.state;
+
+    const { articles } = this.state;
+
     return <ul>
         {articles.map(article => {
             return <Link key={article.article_id} to={`/articles/${article.article_id}`}>
