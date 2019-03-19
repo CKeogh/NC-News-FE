@@ -19,7 +19,7 @@ class App extends Component {
           <p className="login">login</p>
         </div>
 
-        <Router>
+        <Router className="header">
           <Header path="/" topic={{slug: 'NC News', description: ''}}/>
           {topics.map(topic => {
             return <Header path={`/${topic.slug}`} key={`header_${topic.slug}`}topic={topic}/>
@@ -29,9 +29,9 @@ class App extends Component {
         <NavBar topics={this.state.topics}/>
 
         <Router className="mainContent"> 
-          <MainContent path="/" content="All Articles"/>
+          <MainContent path="/" content="All Articles" topic=""/>
           {topics.map(topic => {
-            return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`}content={`${topic.description}`}/>
+            return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug}/>
           })}
         </Router>
 

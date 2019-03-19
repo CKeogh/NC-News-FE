@@ -8,3 +8,8 @@ export const getTopics = async () => {
     const { data } = await request.get('/topics');
     return data.topics;
 }
+
+export const getArticles = async (topic) => {
+    const { data } = await request.get('/articles', {params: { topic }});
+    return data.articles
+}

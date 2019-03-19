@@ -1,24 +1,33 @@
-import React, { Component } from 'react'
-import articles from '../placeholderData/articles'
+import React, { Component } from 'react';
+// import articles from '../placeholderData/articles';
+import { getArticles } from '../api';
+import {Router} from '@reach/router';
+import ArticleList from './ArticleList';
+import Article from './Article';
 
 class MainContent extends Component {
 
   state = {
-    articles: articles
+    articles: []
   }
   render() {
-    const { articles } = this.state;
+    // const { articles } = this.state;
     return (
-      <ul>
-        {articles.map(article => {
-          return <li key={article.article_id}>
-            <h3>{article.title}</h3>
-            <h5>{article.author}</h5>
-            <h6>{article.topic}</h6>
-          </li>
-        })}
-      </ul>
+      <Router>
+        <ArticleList path="/" topic={this.props.topic}/>
+        <Article path="/articles/:article_id"/>
+      </Router>
+
     )
+  }
+
+  componentDidMount() {
+    getArticles()
+      .then(articles => {
+        this.setState({
+          articles: articles
+        })
+      })
   }
 }
 
