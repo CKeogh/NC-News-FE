@@ -15,7 +15,7 @@ class MainContent extends Component {
     return (
       <Router>
         <ArticleList path="/" topic={this.props.topic}/>
-        <Article path="/articles/:article_id"/>
+        <Article path="/:article_id"/>
       </Router>
 
     )

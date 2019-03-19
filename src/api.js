@@ -13,3 +13,8 @@ export const getArticles = async (topic) => {
     const { data } = await request.get('/articles', {params: { topic }});
     return data.articles
 }
+
+export const getArticle = async (article_id) => {
+    const { data } = await request.get(`/articles/${article_id}`);
+    return data.article;
+}

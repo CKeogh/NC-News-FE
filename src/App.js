@@ -20,19 +20,21 @@ class App extends Component {
         </div>
 
         <Router className="header">
-          <Header path="/" topic={{slug: 'NC News', description: ''}}/>
+          <Header path="/" content={{slug: 'NC News', description: ''}}/>
           {topics.map(topic => {
-            return <Header path={`/${topic.slug}`} key={`header_${topic.slug}`}topic={topic}/>
+            return <Header path={`/${topic.slug}`} key={`header_${topic.slug}`}content={topic}/>
           })}
+          <Header path="/articles/*" content={{slug: 'Read This Article', description: 'this is a placeholder'}}/>
         </Router>
 
         <NavBar topics={this.state.topics}/>
 
         <Router className="mainContent"> 
-          <MainContent path="/" content="All Articles" topic=""/>
+          <MainContent path="/" topic=""/>
           {topics.map(topic => {
             return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug}/>
           })}
+          <MainContent path="/articles/*"/>
         </Router>
 
         <h1 className="sideBar">sideBar</h1>

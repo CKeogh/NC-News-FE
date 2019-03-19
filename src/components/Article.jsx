@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react'
+import { getArticle } from '../api'
 
-const Article = (props) => {
-    return <h1>Single Article</h1>
+class Article extends Component {
+
+    state = {
+        article: {}
+    }
+
+  render() {
+      const { article } = this.state;
+    return (
+      <div className="article">
+        <h3>{article.title}</h3>
+        <h5>by {article.author}</h5>
+        <p>
+        {article.body}
+        </p>
+      </div>
+    )
+  }
+
+  componentDidMount() {
+    getArticle(this.props.article_id)
+        .then(article => {
+            this.setState({
+                article: article
+            })
+        })
+  }
 }
 
 export default Article;
