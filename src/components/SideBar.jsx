@@ -1,14 +1,12 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
 const SideBar = (props) => {
     return (
         <div className="sideBar">
-            <button>Post Article</button>
-            <select>
-                <option>date</option>
-                <option>votes</option>
-                <option>comments</option>
-            </select>
+            <Link to="/new-article">
+                <button>Post Article</button>
+            </Link>
         </div>)
 }
 

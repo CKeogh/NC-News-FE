@@ -11,12 +11,14 @@ import SideBar from './components/SideBar';
 class App extends Component {
 
   state = {
-    topics: []
+    topics: [],
+    user: 'grumpy19'
   }
 
   render() {
 
-    const {topics} = this.state
+    const {topics, user} = this.state
+    console.log(user)
 
     return (
       <div className="App">
@@ -28,16 +30,17 @@ class App extends Component {
             return <Header path={`/${topic.slug}`} key={`header_${topic.slug}`}content={topic}/>
           })}
           <Header path="/articles/*" content={{slug: 'Read This Article', description: 'this is a placeholder'}}/>
+          <Header path="/new-article" content={{slug: 'new article for ya', description: 'whats on your mind hun?'}}/>
         </Router>
 
         <NavBar topics={this.state.topics}/>
 
         <Router className="mainContent"> 
-          <MainContent path="/" topic=""/>
           {topics.map(topic => {
             return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug}/>
           })}
           <MainContent path="/articles/*"/>
+          <MainContent path="/*" topics={topics} user={user}/>
         </Router>
 
         <SideBar />

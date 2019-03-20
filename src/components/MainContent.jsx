@@ -4,6 +4,7 @@ import { getArticles } from '../api';
 import {Router} from '@reach/router';
 import ArticleList from './ArticleList';
 import Article from './Article';
+import NewArticle from './NewArticle';
 
 class MainContent extends Component {
 
@@ -11,9 +12,11 @@ class MainContent extends Component {
     articles: []
   }
   render() {
+    console.log(this.props)
 
     return (
       <Router>
+        <NewArticle topics={this.props.topics} user={this.props.user} path="/new-article"/>
         <ArticleList path="/" topic={this.props.topic}/>
         <Article path="/:article_id"/>
       </Router>
