@@ -4,13 +4,13 @@ import CommentsList from './CommentsList';
 
 class Article extends Component {
 
-    state = {
-        article: {}
-    }
+  state = {
+    article: {}
+  }
 
   render() {
 
-      const { article } = this.state;
+    const { article } = this.state;
 
     return (
 
@@ -20,18 +20,18 @@ class Article extends Component {
           <h5>by {article.author}</h5>
           <p>{article.body}</p>
         </div>
-        <CommentsList article_id={article.article_id}/>
+        <CommentsList article_id={article.article_id} user={this.props.user} />
       </div>
     )
   }
 
   componentDidMount() {
     getArticle(this.props.article_id)
-        .then(article => {
-            this.setState({
-                article: article
-            })
+      .then(article => {
+        this.setState({
+          article: article
         })
+      })
   }
 }
 

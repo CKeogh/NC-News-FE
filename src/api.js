@@ -9,8 +9,8 @@ export const getTopics = async () => {
     return data.topics;
 }
 
-export const getArticles = async (topic, sort_by) => {
-    const { data } = await request.get('/articles', {params: { topic, sort_by } });
+export const getArticles = async (topic, sort_by, order) => {
+    const { data } = await request.get('/articles', { params: { topic, sort_by, order } });
     return data.articles
 }
 
@@ -26,5 +26,12 @@ export const getComments = async (article_id) => {
 
 export const postArticle = async (body) => {
     const { data } = await request.post(`/articles`, body);
-    return data.article
+    return data.article;
+}
+
+export const postComment = async (article_id, body) => {
+    console.log(body);
+    console.log(article_id)
+    const { data } = await request.post(`/articles/${article_id}/comments`, body);
+    return data;
 }

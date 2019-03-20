@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import articles from '../placeholderData/articles';
 import { getArticles } from '../api';
-import {Router} from '@reach/router';
+import { Router } from '@reach/router';
 import ArticleList from './ArticleList';
 import Article from './Article';
 import NewArticle from './NewArticle';
@@ -15,9 +15,9 @@ class MainContent extends Component {
 
     return (
       <Router>
-        <NewArticle topics={this.props.topics} user={this.props.user} path="/new-article"/>
-        <ArticleList path="/" topic={this.props.topic}/>
-        <Article path="/:article_id"/>
+        <NewArticle topics={this.props.topics} user={this.props.user} path="/new-article" />
+        <ArticleList path="/" topic={this.props.topic} />
+        <Article path="/:article_id" user={this.props.user} />
       </Router>
     )
   }

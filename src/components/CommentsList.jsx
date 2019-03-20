@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { getComments } from '../api';
 import Comment from './Comment';
+import NewComment from './NewComment';
 
 class CommentsList extends Component {
 
@@ -8,30 +9,32 @@ class CommentsList extends Component {
         comments: []
     }
 
-  render() {
+    render() {
 
-    const { comments } = this.state;
-    
-    return (
-         <div className="comments">
-            <h3>COMMENTS</h3>
-            {comments.map(comment => {
-                return <Comment key={comment.comment_id}comment={comment}/>
-            })}
-        </div>
-    )
-  }
+        const { comments } = this.state;
+        const { article_id, user } = this.props;
 
-  componentDidUpdate(prevProps) {
-    if (this.props.article_id !== prevProps.article_id) {
-        getComments(this.props.article_id)
-            .then(comments => {
-                this.setState({
-                    comments: comments
-                })
-            })
+        return (
+            <div className="comments">
+                <h3>COMMENTS</h3>
+                <NewComment article_id={article_id} user={user} />
+                {comments.map(comment => {
+                    return <Comment key={comment.comment_id} comment={comment} />
+                })}
+            </div>
+        )
     }
-  }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.article_id !== prevProps.article_id) {
+            getComments(this.props.article_id)
+                .then(comments => {
+                    this.setState({
+                        comments: comments
+                    })
+                })
+        }
+    }
 }
 
 
