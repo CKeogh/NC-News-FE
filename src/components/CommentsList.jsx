@@ -25,6 +25,15 @@ class CommentsList extends Component {
         )
     }
 
+    // componentDidMount() {
+    //     getComments(this.props.article_id)
+    //         .then(comments => {
+    //             this.setState({
+    //                 comments: comments
+    //             })
+    //         })
+    // }
+
     componentDidUpdate(prevProps) {
         if (this.props.article_id !== prevProps.article_id) {
             getComments(this.props.article_id)

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import articles from '../placeholderData/articles';
 import { getArticles } from '../api';
 import { Router } from '@reach/router';
 import ArticleList from './ArticleList';

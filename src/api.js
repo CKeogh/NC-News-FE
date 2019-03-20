@@ -11,7 +11,7 @@ export const getTopics = async () => {
 
 export const getArticles = async (topic, sort_by, order) => {
     const { data } = await request.get('/articles', { params: { topic, sort_by, order } });
-    return data.articles
+    return data.articles;
 }
 
 export const getArticle = async (article_id) => {
@@ -30,8 +30,6 @@ export const postArticle = async (body) => {
 }
 
 export const postComment = async (article_id, body) => {
-    console.log(body);
-    console.log(article_id)
     const { data } = await request.post(`/articles/${article_id}/comments`, body);
     return data;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { postComment } from '../api';
+import { navigate } from '@reach/router';
 
 class NewComment extends Component {
 
@@ -24,14 +25,16 @@ class NewComment extends Component {
         });
     }
 
-    handleSubmit = () => {
+    handleSubmit = (event) => {
+        event.preventDefault();
         const newComment = {
-            user: this.props.user,
+            username: this.props.user,
             body: this.state.commentBody
         };
+        console.log(newComment.author)
         postComment(this.props.article_id, newComment)
-            .this(comment => {
-                console.log(comment);
+            .then(comment => {
+                console.log(comment)
             })
     }
 }
