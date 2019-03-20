@@ -12,7 +12,6 @@ class MainContent extends Component {
     articles: []
   }
   render() {
-    console.log(this.props)
 
     return (
       <Router>

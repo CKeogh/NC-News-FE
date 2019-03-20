@@ -18,7 +18,6 @@ class App extends Component {
   render() {
 
     const {topics, user} = this.state
-    console.log(user)
 
     return (
       <div className="App">
