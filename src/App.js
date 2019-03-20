@@ -39,7 +39,7 @@ class App extends Component {
             return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug} />
           })}
           <MainContent path="/articles/*" user={user} />
-          <MainContent path="/*" topics={topics} user={user} />
+          <MainContent path="/*" topics={topics} user={user} updateTopics={this.updateTopics} />
         </Router>
 
         <SideBar />
@@ -51,10 +51,15 @@ class App extends Component {
   componentDidMount() {
     getTopics()
       .then(topics => {
-        this.setState({
-          topics: topics
-        })
+        this.setState({ topics })
       })
+  }
+
+  updateTopics = () => {
+    getTopics()
+      .then(topics => [
+        this.setState({ topics })
+      ])
   }
 }
 

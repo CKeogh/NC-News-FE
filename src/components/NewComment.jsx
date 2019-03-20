@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { postComment } from '../api';
-import { navigate } from '@reach/router';
 
 class NewComment extends Component {
 
@@ -10,10 +9,9 @@ class NewComment extends Component {
 
 
     render() {
-        console.log()
         return (
             <div>
-                <textarea id="newComment-field" onChange={this.handleChange} />
+                <textarea id="newComment-field" defaultValue='' onChange={this.handleChange} />
                 <button onClick={this.handleSubmit}>post</button>
             </div>
         )
@@ -31,10 +29,10 @@ class NewComment extends Component {
             username: this.props.user,
             body: this.state.commentBody
         };
-        console.log(newComment.author)
+        this.setState({ commentBody: '' });
         postComment(this.props.article_id, newComment)
             .then(comment => {
-                console.log(comment)
+                this.props.updateComments()
             })
     }
 }

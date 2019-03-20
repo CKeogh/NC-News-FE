@@ -33,3 +33,8 @@ export const postComment = async (article_id, body) => {
     const { data } = await request.post(`/articles/${article_id}/comments`, body);
     return data;
 }
+
+export const postTopic = async (body) => {
+    const { data } = await request.post('/topics', body);
+    return data.topic;
+}

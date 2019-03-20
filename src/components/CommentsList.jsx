@@ -17,7 +17,7 @@ class CommentsList extends Component {
         return (
             <div className="comments">
                 <h3>COMMENTS</h3>
-                <NewComment article_id={article_id} user={user} />
+                <NewComment article_id={article_id} user={user} updateComments={this.updateComments} />
                 {comments.map(comment => {
                     return <Comment key={comment.comment_id} comment={comment} />
                 })}
@@ -25,24 +25,18 @@ class CommentsList extends Component {
         )
     }
 
-    // componentDidMount() {
-    //     getComments(this.props.article_id)
-    //         .then(comments => {
-    //             this.setState({
-    //                 comments: comments
-    //             })
-    //         })
-    // }
-
     componentDidUpdate(prevProps) {
         if (this.props.article_id !== prevProps.article_id) {
             getComments(this.props.article_id)
-                .then(comments => {
-                    this.setState({
-                        comments: comments
-                    })
-                })
+                .then(comments => { this.setState({ comments }) })
+        } else if (this.state.newCommentAdded) {
+            getComments(this.props.article_id)
+                .then(comments => { this.setState({ comments, newCommentAdded: false }) })
         }
+    }
+
+    updateComments = () => {
+        this.setState({ newCommentAdded: true })
     }
 }
 

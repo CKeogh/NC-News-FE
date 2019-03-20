@@ -4,6 +4,7 @@ import { Router } from '@reach/router';
 import ArticleList from './ArticleList';
 import Article from './Article';
 import NewArticle from './NewArticle';
+import NewTopic from './NewTopic';
 
 class MainContent extends Component {
 
@@ -15,6 +16,7 @@ class MainContent extends Component {
     return (
       <Router>
         <NewArticle topics={this.props.topics} user={this.props.user} path="/new-article" />
+        <NewTopic path="/new-topic" updateTopics={this.props.updateTopics} />
         <ArticleList path="/" topic={this.props.topic} />
         <Article path="/:article_id" user={this.props.user} />
       </Router>

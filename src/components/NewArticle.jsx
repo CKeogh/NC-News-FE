@@ -14,14 +14,20 @@ class NewArticle extends Component {
             <form action="" method="post" id="newArticle">
                 <textarea onChange={(event) => this.handleChange('title', event.target.value)} id="newArticle-title" form_id="newArticle" />
                 <textarea onChange={(event) => this.handleChange('body', event.target.value)} id="newArticle-body" form_id="newArticle" />
+
                 <select onChange={(event) => this.handleChange('topic', event.target.value)}>
                     {topics.map(topic => {
                         return <option key={`topicselect-${topic.slug}`} value={topic.slug}>{topic.slug}</option>
                     })}
                 </select>
+
                 <input type="submit" onClick={this.handleSubmit} value="post article"></input>
             </form>
         )
+    }
+
+    componentDidUpdate() {
+        console.dir(this.props.location.state)
     }
 
     handleChange(key, value) {
