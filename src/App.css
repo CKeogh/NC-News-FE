@@ -146,4 +146,42 @@ ul {
 .avatarImg {
   height: 3em;
   width: 3em;
+  border-radius: 3em;
+}
+
+.userHead {
+  display: flex;
+}
+
+.newUserForm {
+  display: grid;
+  grid-template: fr1 fr 3 / 1fr 1fr 1fr;
+  grid-template-areas: 
+  'name nameInput'
+  'username usernameInput'
+  'avatar avatarInput'
+}
+
+#newNameLabel {
+  grid-area: name;
+}
+
+#newName {
+  grid-area: nameInput;
+}
+
+#newUsernameLabel {
+  grid-area: username;
+}
+
+#newUsername {
+  grid-area: userNameInput;
+}
+
+#newAvatarLabel {
+  grid-area: avatar;
+}
+
+#newAvatar {
+  grid-area: avatarInput;
 }

@@ -8,12 +8,13 @@ class ArticleList extends Component {
     articles: [],
     order: 'date',
     orderBy: 'desc',
-    isUpdated: false
+    isUpdated: false,
+    isLoading: true
   }
 
   render() {
     const { articles } = this.state;
-
+    if (this.state.isLoading) return <h2>Content loading...</h2>
     return <div>
       <select onClick={(event) => { this.handleSelect('order', event.target.value) }} className="orderSelect">
         <option value="created_at">date</option>
@@ -39,8 +40,10 @@ class ArticleList extends Component {
     getArticles(this.props.topic)
       .then(articles => {
         this.setState({
-          articles: articles
+          articles,
+          isLoading: false
         })
+
       })
   }
 

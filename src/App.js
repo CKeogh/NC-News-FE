@@ -7,39 +7,42 @@ import { Router } from '@reach/router';
 import Header from './components/Header';
 import FloatBar from './components/FloatBar';
 import SideBar from './components/SideBar';
+import Error from './components/Error';
 
 class App extends Component {
 
   state = {
     topics: [],
     users: [],
-    user: ''
+    user: '',
+    title: 'NC News',
+    subtitle: ''
   }
 
   render() {
-    const { topics, user, users } = this.state
+    const { topics, user, users, title, subtitle } = this.state
 
     return (
       <div className="App">
 
         <FloatBar setUser={this.setUser} user={user} userData={users} />
         <Router className="header">
-          <Header path="/" content={{ slug: 'NC News', description: '' }} />
+          <Header path="/" title={title} subtitle={subtitle} />
           {topics.map(topic => {
-            return <Header path={`/${topic.slug}`} key={`header_${topic.slug}`} content={topic} />
+            return <Header path={`/${topic.slug}`} key={`header_${topic.slug}`} title={topic.slug} subtitle={topic.description} />
           })}
-          <Header path="/articles/*" content={{ slug: 'Read This Article', description: 'this is a placeholder' }} />
-          <Header path="/new-article" content={{ slug: 'new article for ya', description: 'whats on your mind hun?' }} />
+          <Header path="/articles/*" title={title} subtitle={subtitle} />
+          <Header path="/new-article" title={title} subtitle={subtitle} />
         </Router>
 
         <NavBar topics={this.state.topics} />
 
         <Router className="mainContent">
+
           {topics.map(topic => {
             return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug} user={user} />
           })}
-          <MainContent path="/articles/*" user={user} />
-          <MainContent path="/*" topics={topics} user={user} updateTopics={this.updateTopics} />
+          <MainContent users={users} path="/*" topics={topics} setUser={this.setUser} user={user} updateTopics={this.updateTopics} />
         </Router>
 
         <SideBar user={user} />
@@ -75,6 +78,10 @@ class App extends Component {
     } else {
       this.setState({ user: newUser })
     }
+  }
+
+  setHeader = (title, subtitle) => {
+
   }
 }
 

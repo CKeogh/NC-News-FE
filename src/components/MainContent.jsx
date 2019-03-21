@@ -1,35 +1,23 @@
-import React, { Component } from 'react';
-import { getArticles } from '../api';
+import React from 'react';
 import { Router } from '@reach/router';
 import ArticleList from './ArticleList';
 import Article from './Article';
 import NewArticle from './NewArticle';
 import NewTopic from './NewTopic';
+import SignUp from './SignUp';
+import Error from './Error';
 
-class MainContent extends Component {
-
-  state = {
-    articles: []
-  }
-  render() {
-    return (
-      <Router>
-        <NewArticle topics={this.props.topics} user={this.props.user} path="/new-article" />
-        <NewTopic path="/new-topic" updateTopics={this.props.updateTopics} />
-        <ArticleList path="/" topic={this.props.topic} user={this.props.user} />
-        <Article path="/:article_id" user={this.props.user} />
-      </Router>
-    )
-  }
-
-  componentDidMount() {
-    getArticles()
-      .then(articles => {
-        this.setState({
-          articles: articles
-        })
-      })
-  }
+const MainContent = (props) => {
+  return (
+    <Router>
+      <NewArticle topics={props.topics} user={props.user} path="/new-article" />
+      <NewTopic path="/new-topic" updateTopics={props.updateTopics} />
+      <SignUp path="/sign-up" users={props.users} setUser={props.setUser} />
+      <ArticleList path="/" topic={props.topic} user={props.user} />
+      <Article path="/articles/:article_id" user={props.user} />
+      <Error path="/*" />
+    </Router>
+  )
 }
 
 

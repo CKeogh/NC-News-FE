@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { postTopic } from '../api';
 import { navigate } from '@reach/router';
+import formatSlug from '../utils/formatSlug';
 
 class NewTopic extends Component {
 
@@ -27,8 +28,9 @@ class NewTopic extends Component {
     }
 
     handleTopicSubmit = () => {
+
         const newTopic = {
-            slug: this.state.title,
+            slug: formatSlug(this.state.title),
             description: this.state.description
         }
         postTopic(newTopic)

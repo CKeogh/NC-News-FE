@@ -6,13 +6,12 @@
 2. Only show top three most popular topics and rest in show all
 3. ~~implement voting~~
 4. ~~implement deleting~~
-5. user login
+5. ~~user login~~
     * login page with option to create new user
-6. user article list
 
 ## Tomorrow
-7. author avatar for each article
-8. create setHeader() to pass as props
+7. ~~author avatar for each article~~
+8. ~~create setHeader() to pass as props~~
 9. cosmetic CSS
 10. pagination?
 11. readme

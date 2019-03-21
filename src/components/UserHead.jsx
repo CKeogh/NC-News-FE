@@ -6,9 +6,9 @@ const UserHead = ({ setUser, username, userData }) => {
     })[0]
 
     return (
-        <div>
+        <div className="userHead">
             <h3>logged in as {currentUser.username}</h3>
-            <img className="avatarImg" alt="users avatar" src={currentUser.avatar_url}></img>
+            <img className="avatarImg" onError={(e) => { e.target.src = "https://upload.wikimedia.org/wikipedia/en/b/b1/Portrait_placeholder.png" }} alt="users avatar" src={currentUser.avatar_url}></img>
             <button onClick={() => { setUser('') }}>logout</button>
         </div>
     )

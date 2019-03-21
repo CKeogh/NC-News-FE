@@ -59,3 +59,8 @@ export const getUsers = async () => {
     const { data } = await request.get('/users')
     return data.users;
 }
+
+export const addUser = async (body) => {
+    const { data } = await request.post('/users', body);
+    return data.user;
+}

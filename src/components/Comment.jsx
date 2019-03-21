@@ -20,9 +20,11 @@ class Comment extends Component {
                 <AuthDelete author={comment.author} user={user}>
                     <Delete handleDelete={handleDelete} />
                 </AuthDelete>
-                <Vote item={comment} changeVote={() => { this.changeVote(comment, 1) }} type='like' />
-                <p>{comment.votes + this.state.voteChange}</p>
-                <Vote item={comment} changeVote={() => { this.changeVote(comment, -1) }} type='dislike' />
+                <div className="voteIcon">
+                    <Vote item={comment} changeVote={() => { this.changeVote(comment, 1) }} type='like' />
+                    <p>{comment.votes + this.state.voteChange}</p>
+                    <Vote item={comment} changeVote={() => { this.changeVote(comment, -1) }} type='dislike' />
+                </div>
             </div>
         )
     }

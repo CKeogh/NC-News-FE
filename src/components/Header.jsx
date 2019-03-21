@@ -1,14 +1,14 @@
 import React from 'react';
-import {capitalise} from '../utils/capitalise'
+import { capitalise } from '../utils/capitalise'
 
 
-const Header = ({content}) => {
+const Header = ({ title, subtitle }) => {
     return (
         <header>
-            <h1>{capitalise(content.slug)}</h1>
-            <h2>{content.description}</h2>
+            <h1>{capitalise(title)}</h1>
+            <h2>{subtitle}</h2>
         </header>
-        )
+    )
 }
 
 export default Header;
