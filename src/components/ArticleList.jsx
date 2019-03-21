@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { getArticles, deleteArticle } from '../api'
 import ArticleCard from './ArticleCard';
+import { navigate } from '@reach/router';
+import Loading from './Loading';
 
 class ArticleList extends Component {
 
@@ -14,7 +16,10 @@ class ArticleList extends Component {
 
   render() {
     const { articles } = this.state;
-    if (this.state.isLoading) return <h2>Content loading...</h2>
+
+    if (this.state.isLoading) return <Loading />
+    if (articles.length === 0) return <h2 className="softNotice">No Articles Posted Yet</h2>
+
     return <div>
       <select onClick={(event) => { this.handleSelect('order', event.target.value) }} className="orderSelect">
         <option value="created_at">date</option>
@@ -43,7 +48,9 @@ class ArticleList extends Component {
           articles,
           isLoading: false
         })
-
+      })
+      .catch(err => {
+        navigate('/error')
       })
   }
 
@@ -55,7 +62,9 @@ class ArticleList extends Component {
             articles,
             isUpdated: false
           })
-
+        })
+        .catch(err => {
+          navigate('/error')
         })
     }
   }

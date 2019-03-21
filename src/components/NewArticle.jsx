@@ -47,6 +47,9 @@ class NewArticle extends Component {
             .then(newArticle => {
                 navigate(`/articles/${newArticle.article_id}`)
             })
+            .catch(err => {
+                navigate('/error')
+            })
     }
 
 

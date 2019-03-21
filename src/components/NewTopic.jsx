@@ -38,6 +38,9 @@ class NewTopic extends Component {
                 this.props.updateTopics()
                 navigate('/new-article', { state: { topic: topic.slug } })
             })
+            .catch(err => {
+                navigate('/error')
+            })
     }
 }
 

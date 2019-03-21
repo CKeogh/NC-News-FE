@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { postComment } from '../api';
+import { navigate } from '@reach/router/lib/history';
 
 class NewComment extends Component {
 
@@ -30,10 +31,12 @@ class NewComment extends Component {
             body: this.state.commentBody
         };
         this.setState({ commentBody: '' });
-        this.props.updateComments()
         postComment(this.props.article_id, newComment)
             .then(comment => {
                 this.props.updateComments()
+            })
+            .catch(err => {
+                navigate('/error')
             })
     }
 }

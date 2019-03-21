@@ -2,18 +2,20 @@ import React, { Component } from 'react'
 import { getArticle, updateArticleVotes } from '../api'
 import CommentsList from './CommentsList';
 import Vote from './Vote';
+import Loading from './Loading';
 
 class Article extends Component {
 
   state = {
     article: {},
-    voteChange: 0
+    voteChange: 0,
+    isLoading: true
   }
 
   render() {
 
-    const { article } = this.state;
-
+    const { article, isLoading } = this.state;
+    if (isLoading) return <Loading />
     return (
 
       <div>
@@ -34,7 +36,8 @@ class Article extends Component {
     getArticle(this.props.article_id)
       .then(article => {
         this.setState({
-          article: article
+          article,
+          isLoading: false
         })
       })
   }

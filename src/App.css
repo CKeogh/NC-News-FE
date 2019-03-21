@@ -23,7 +23,7 @@
 .navBar {
   grid-area: navBar;
   border: 0.1em solid rgba(255, 0, 55, 0.849);
-  display: flex;
+  font-size: 2em;
 }
 
 .mainContent {
@@ -145,8 +145,8 @@ ul {
 
 .avatarImg {
   height: 3em;
-  width: 3em;
-  border-radius: 3em;
+  width: auto;
+  border-radius: 100%;
 }
 
 .userHead {
@@ -155,11 +155,12 @@ ul {
 
 .newUserForm {
   display: grid;
-  grid-template: fr1 fr 3 / 1fr 1fr 1fr;
+  grid-template: fr1 fr 3 / 1fr 1fr 1fr 1fr;
   grid-template-areas: 
   'name nameInput'
   'username usernameInput'
   'avatar avatarInput'
+  'null submit'
 }
 
 #newNameLabel {
@@ -184,4 +185,18 @@ ul {
 
 #newAvatar {
   grid-area: avatarInput;
+}
+
+#newUserSubmit {
+  grid-area: submit;
+}
+
+.softNotice {
+  color: rgba(0, 0, 0, 0.514)
+}
+
+.topicsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

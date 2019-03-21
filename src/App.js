@@ -7,7 +7,7 @@ import { Router } from '@reach/router';
 import Header from './components/Header';
 import FloatBar from './components/FloatBar';
 import SideBar from './components/SideBar';
-import Error from './components/Error';
+import { navigate } from '@reach/router/lib/history';
 
 class App extends Component {
 
@@ -26,7 +26,9 @@ class App extends Component {
       <div className="App">
 
         <FloatBar setUser={this.setUser} user={user} userData={users} />
+
         <Router className="header">
+          <Header path="/topics" title={'Topics'} subtitle='pick a topic' />
           <Header path="/" title={title} subtitle={subtitle} />
           {topics.map(topic => {
             return <Header path={`/${topic.slug}`} key={`header_${topic.slug}`} title={topic.slug} subtitle={topic.description} />
@@ -38,7 +40,6 @@ class App extends Component {
         <NavBar topics={this.state.topics} />
 
         <Router className="mainContent">
-
           {topics.map(topic => {
             return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug} user={user} />
           })}
@@ -66,7 +67,9 @@ class App extends Component {
     getTopics()
       .then(topics => [
         this.setState({ topics })
-      ])
+      ]).catch(err => {
+        navigate(`/error`)
+      })
   }
 
   setUser = (newUser) => {

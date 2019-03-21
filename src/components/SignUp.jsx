@@ -19,7 +19,7 @@ class SignUp extends Component {
                 <input required onChange={(e) => { this.handleChange('username', e.target.value) }} id="newUserName" type="text" />
                 <label id="newAvatarLabel" htmlFor="newAvatar">provide avatar link:</label>
                 <input required onChange={(e) => { this.handleChange('avatar_url', e.target.value) }} id="newAvatar" type="text" />
-                <button type="submit" onClick={this.submitNewUser}>submit</button>
+                <button id="newUserSubmit" onClick={this.submitNewUser}>submit</button>
 
             </form>
         )
@@ -43,8 +43,11 @@ class SignUp extends Component {
             } else {
                 addUser({ name, username, avatar_url })
                     .then((user) => {
-                        this.props.setUser(user.username)
+                        this.props.setUser(user.username) // NEED TO FIX!
                         navigate('/')
+                    })
+                    .catch(err => {
+                        navigate('/error')
                     })
             }
         }
