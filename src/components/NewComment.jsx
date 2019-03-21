@@ -12,7 +12,7 @@ class NewComment extends Component {
     render() {
         return (
             <div>
-                <textarea id="newComment-field" defaultValue='' onChange={this.handleChange} />
+                <textarea id="newComment-field" value={this.state.commentBody} onChange={this.handleChange} />
                 <button onClick={this.handleSubmit}>post</button>
             </div>
         )
