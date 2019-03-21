@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
-import { getTopics } from './api'
+import { getTopics, getUsers } from './api'
 import MainContent from './components/MainContent';
 import { Router } from '@reach/router';
 import Header from './components/Header';
@@ -12,17 +12,17 @@ class App extends Component {
 
   state = {
     topics: [],
-    user: 'grumpy19'
+    users: [],
+    user: ''
   }
 
   render() {
-
-    const { topics, user } = this.state
+    const { topics, user, users } = this.state
 
     return (
       <div className="App">
 
-        <FloatBar />
+        <FloatBar setUser={this.setUser} user={user} userData={users} />
         <Router className="header">
           <Header path="/" content={{ slug: 'NC News', description: '' }} />
           {topics.map(topic => {
@@ -53,6 +53,10 @@ class App extends Component {
       .then(topics => {
         this.setState({ topics })
       })
+    getUsers()
+      .then(users => {
+        this.setState({ users })
+      })
   }
 
   updateTopics = () => {
@@ -60,6 +64,17 @@ class App extends Component {
       .then(topics => [
         this.setState({ topics })
       ])
+  }
+
+  setUser = (newUser) => {
+    const usernames = this.state.users.map(user => user.username)
+    if (newUser === '') {
+      this.setState({ user: newUser })
+    } else if (!usernames.includes(newUser)) {
+      alert(`user doesn't exist!`)
+    } else {
+      this.setState({ user: newUser })
+    }
   }
 }
 

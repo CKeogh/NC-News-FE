@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Auth from './Auth';
+import AuthDelete from './AuthDelete';
 import Delete from './Delete';
 import Vote from './Vote';
 import { updateCommentVotes } from '../api';
@@ -17,9 +17,9 @@ class Comment extends Component {
             <div>
                 <p>{comment.body}</p>
                 <h5>by {comment.author}</h5>
-                <Auth author={comment.author} user={user}>
+                <AuthDelete author={comment.author} user={user}>
                     <Delete handleDelete={handleDelete} />
-                </Auth>
+                </AuthDelete>
                 <Vote item={comment} changeVote={() => { this.changeVote(comment, 1) }} type='like' />
                 <p>{comment.votes + this.state.voteChange}</p>
                 <Vote item={comment} changeVote={() => { this.changeVote(comment, -1) }} type='dislike' />

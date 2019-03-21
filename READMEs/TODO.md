@@ -4,7 +4,7 @@
 ## Today
 1. ~~navigate to new article with new topic selected~~
 2. Only show top three most popular topics and rest in show all
-3. implement voting
+3. ~~implement voting~~
 4. ~~implement deleting~~
 5. user login
     * login page with option to create new user

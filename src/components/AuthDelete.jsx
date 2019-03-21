@@ -1,5 +1,5 @@
 
-const Auth = ({ author, user, children }) => {
+const AuthDelete = ({ author, user, children }) => {
     if (user === author) {
         return children
     } else {
@@ -7,4 +7,4 @@ const Auth = ({ author, user, children }) => {
     }
 }
 
-export default Auth;
+export default AuthDelete;

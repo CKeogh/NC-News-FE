@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import Auth from './Auth';
+import AuthDelete from './AuthDelete';
 import Delete from './Delete';
 
 const ArticleCard = ({ article, handleDelete, user }) => {
@@ -22,9 +22,9 @@ const ArticleCard = ({ article, handleDelete, user }) => {
             <p className="articleCard-votes">{article.votes}</p>
             <p className="articleCard-comment_count">{commentCountString}</p>
             <p className="articleCard-created_at">created: {dateCreated.toDateString()}</p>
-            <Auth author={article.author} user={user} >
-                <Delete handleDelete={handleDelete}/>
-            </Auth>
+            <AuthDelete author={article.author} user={user} >
+                <Delete handleDelete={handleDelete} />
+            </AuthDelete>
         </div>
     </li>
 }
