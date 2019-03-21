@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Vote = ({ article, changeVote }) => {
+const Vote = ({ item, changeVote, type }) => {
     return (
         <div>
-            <p>Votes: {article.votes}</p>
-            <button onClick={changeVote}>like</button>
-            <button onClick={changeVote}>dislike</button>
+            <button onClick={changeVote}>{type}</button>
         </div>
     )
 }

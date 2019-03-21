@@ -51,7 +51,6 @@ class ArticleList extends Component {
           this.setState({
             articles,
             isUpdated: false
-
           })
 
         })
@@ -65,10 +64,13 @@ class ArticleList extends Component {
   }
 
   handleDelete = (article_id) => {
-    deleteArticle(article_id)
-      .then(() => {
-        this.setState({ isUpdated: true })
+    this.setState(prevState => {
+      const newArticles = prevState.articles.filter(article => {
+        return article.article_id !== article_id
       })
+      return { articles: newArticles }
+    })
+    deleteArticle(article_id)
   }
 }
 
