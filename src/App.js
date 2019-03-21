@@ -36,7 +36,7 @@ class App extends Component {
 
         <Router className="mainContent">
           {topics.map(topic => {
-            return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug} />
+            return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug} user={user} />
           })}
           <MainContent path="/articles/*" user={user} />
           <MainContent path="/*" topics={topics} user={user} updateTopics={this.updateTopics} />

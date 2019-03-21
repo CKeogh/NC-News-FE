@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from '@reach/router';
-import { getArticles } from '../api'
+import { getArticles, deleteArticle } from '../api'
 import ArticleCard from './ArticleCard';
 
 class ArticleList extends Component {
@@ -8,11 +7,11 @@ class ArticleList extends Component {
   state = {
     articles: [],
     order: 'date',
-    orderBy: 'desc'
+    orderBy: 'desc',
+    isUpdated: false
   }
 
   render() {
-
     const { articles } = this.state;
 
     return <div>
@@ -27,9 +26,9 @@ class ArticleList extends Component {
       </select>
       <ul>
         {articles.map(article => {
-          return <Link key={article.article_id} to={`/articles/${article.article_id}`}>
-            <ArticleCard article={article} />
-          </Link>
+          return <div key={article.article_id}>
+            <ArticleCard handleDelete={() => { this.handleDelete(article.article_id) }} article={article} user={this.props.user} />
+          </div>
         })}
       </ul>
     </div>
@@ -46,12 +45,15 @@ class ArticleList extends Component {
   }
 
   componentDidUpdate(_, prevState) {
-    if (prevState.order !== this.state.order || prevState.orderBy !== this.state.orderBy) {
+    if (prevState.order !== this.state.order || prevState.orderBy !== this.state.orderBy || this.state.isUpdated) {
       getArticles(this.props.topic, this.state.order, this.state.orderBy)
         .then(articles => {
           this.setState({
-            articles: articles
+            articles,
+            isUpdated: false
+
           })
+
         })
     }
   }
@@ -60,6 +62,13 @@ class ArticleList extends Component {
     this.setState({
       [key]: value
     })
+  }
+
+  handleDelete = (article_id) => {
+    deleteArticle(article_id)
+      .then(() => {
+        this.setState({ isUpdated: true })
+      })
   }
 }
 

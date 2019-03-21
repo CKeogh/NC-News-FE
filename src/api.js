@@ -38,3 +38,11 @@ export const postTopic = async (body) => {
     const { data } = await request.post('/topics', body);
     return data.topic;
 }
+
+export const deleteArticle = async (article_id) => {
+    await request.delete(`/articles/${article_id}`);
+}
+
+export const deleteComment = async (comment_id) => {
+    await request.delete(`/comments/${comment_id}`);
+}

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { getArticle } from '../api'
 import CommentsList from './CommentsList';
+import Vote from './Vote';
 
 class Article extends Component {
 
   state = {
-    article: {}
+    article: {},
+    voteChange: 0
   }
 
   render() {

@@ -34,7 +34,7 @@ class NewTopic extends Component {
         postTopic(newTopic)
             .then(topic => {
                 this.props.updateTopics()
-                navigate('/new-article', { state: topic.slug })
+                navigate('/new-article', { state: { topic: topic.slug } })
             })
     }
 }

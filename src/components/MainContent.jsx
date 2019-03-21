@@ -12,12 +12,11 @@ class MainContent extends Component {
     articles: []
   }
   render() {
-
     return (
       <Router>
         <NewArticle topics={this.props.topics} user={this.props.user} path="/new-article" />
         <NewTopic path="/new-topic" updateTopics={this.props.updateTopics} />
-        <ArticleList path="/" topic={this.props.topic} />
+        <ArticleList path="/" topic={this.props.topic} user={this.props.user} />
         <Article path="/:article_id" user={this.props.user} />
       </Router>
     )

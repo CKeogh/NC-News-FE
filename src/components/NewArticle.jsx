@@ -15,7 +15,7 @@ class NewArticle extends Component {
                 <textarea onChange={(event) => this.handleChange('title', event.target.value)} id="newArticle-title" form_id="newArticle" />
                 <textarea onChange={(event) => this.handleChange('body', event.target.value)} id="newArticle-body" form_id="newArticle" />
 
-                <select onChange={(event) => this.handleChange('topic', event.target.value)}>
+                <select value={this.state.topic} onChange={(event) => this.handleChange('topic', event.target.value)}>
                     {topics.map(topic => {
                         return <option key={`topicselect-${topic.slug}`} value={topic.slug}>{topic.slug}</option>
                     })}
@@ -26,8 +26,11 @@ class NewArticle extends Component {
         )
     }
 
-    componentDidUpdate() {
-        console.dir(this.props.location.state)
+    componentDidMount() {
+        const { topic } = this.props.location.state
+        if (topic) {
+            this.setState({ topic })
+        }
     }
 
     handleChange(key, value) {
