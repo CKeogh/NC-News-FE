@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import AuthUser from './AuthUser';
 
-const SideBar = (props) => {
+const SideBar = ({ user }) => {
     return (
         <div className="sideBar">
-            <Link to="/new-article"><button>Post Article</button></Link>
-            <Link to="/new-topic"><button>Create a New Topic</button></Link>
+            <AuthUser user={user}>
+                <div>
+                    <Link to="/new-article"><button>Post Article</button></Link>
+                    <Link to="/new-topic"><button>Create a New Topic</button></Link>
+                </div>
+                <p className="loginPrompt">Login to post an article and create new topics</p>
+            </AuthUser>
         </div>)
 }
 

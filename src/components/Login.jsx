@@ -10,7 +10,7 @@ class Login extends Component {
             <div>
                 <label htmlFor="usernameInput">username: </label>
                 <input onChange={this.handleChange} id="usernameInput"></input>
-                <button onClick={() => { this.props.setUser(this.state.username) }}>go!</button>
+                <button onClick={() => { this.props.setUser(this.state.username) }}>login</button>
             </div>
         )
     }

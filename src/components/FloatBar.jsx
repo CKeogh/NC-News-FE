@@ -1,11 +1,16 @@
 import React from 'react';
 import AuthUser from './AuthUser';
+import UserHead from './UserHead';
+import Login from './Login';
 
 const FloatBar = ({ setUser, user, userData }) => {
   return (
     <div className="floatBar">
       <div className="login">
-        <AuthUser setUser={setUser} user={user} userData={userData} />
+        <AuthUser user={user}>
+          <UserHead setUser={setUser} username={user} userData={userData} />
+          <Login setUser={setUser} />
+        </AuthUser>
       </div>
     </div>
   )

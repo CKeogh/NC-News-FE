@@ -42,7 +42,7 @@ class App extends Component {
           <MainContent path="/*" topics={topics} user={user} updateTopics={this.updateTopics} />
         </Router>
 
-        <SideBar />
+        <SideBar user={user} />
         <footer className="footer">Footer</footer>
       </div>
     );

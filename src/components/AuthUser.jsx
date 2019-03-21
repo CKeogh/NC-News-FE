@@ -1,12 +1,9 @@
-import React from 'react';
-import Login from './Login';
-import UserHead from './UserHead';
 
-const AuthUser = ({ setUser, user, userData }) => {
+const AuthUser = ({ user, children }) => {
     if (user) {
-        return <UserHead setUser={setUser} username={user} userData={userData} />
+        return children[0]
     } else {
-        return <Login setUser={setUser} />
+        return children[1]
     }
 }
 
