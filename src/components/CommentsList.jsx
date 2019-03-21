@@ -40,10 +40,14 @@ class CommentsList extends Component {
     }
 
     handleDelete = (comment_id) => {
-        deleteComment(comment_id)
-            .then(() => {
-                this.setState({ isUpdated: true })
+        this.setState((prevState) => {
+            const newComments = prevState.comments.filter(comment => {
+                return comment.comment_id !== comment_id
             })
+            return { comments: newComments }
+        })
+        deleteComment(comment_id)
+
     }
 
 }

@@ -30,6 +30,7 @@ class NewComment extends Component {
             body: this.state.commentBody
         };
         this.setState({ commentBody: '' });
+        this.props.updateComments()
         postComment(this.props.article_id, newComment)
             .then(comment => {
                 this.props.updateComments()
