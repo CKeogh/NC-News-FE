@@ -40,10 +40,8 @@ class Article extends Component {
   }
 
   changeVote = (article, change) => {
-
     this.setState((prevState => {
       if (prevState.voteChange !== change) {
-        console.log(prevState.voteChange)
         const newVoteVal = prevState.voteChange + change;
         updateArticleVotes(article.article_id, change);
         return { voteChange: newVoteVal }

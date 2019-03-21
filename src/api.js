@@ -50,3 +50,7 @@ export const deleteComment = async (comment_id) => {
 export const updateArticleVotes = async (article_id, inc_votes) => {
     await request.patch(`/articles/${article_id}`, { inc_votes })
 }
+
+export const updateCommentVotes = async (comment_id, inc_votes) => {
+    await request.patch(`/comments/${comment_id}`, { inc_votes });
+}

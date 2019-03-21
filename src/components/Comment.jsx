@@ -1,17 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Auth from './Auth';
 import Delete from './Delete';
+import Vote from './Vote';
+import { updateCommentVotes } from '../api';
 
-const Comment = ({ comment, handleDelete, author, user }) => {
-    return (
-        <div className="comment">
-            <p>{comment.body}</p>
-            <h5>by {comment.author}</h5>
-            <Auth author={comment.author} user={user}>
-                <Delete handleDelete={handleDelete} />
-            </Auth>
-        </div>
-    )
+class Comment extends Component {
+
+    state = {
+        voteChange: 0
+    }
+
+    render() {
+
+        const { comment, handleDelete, user } = this.props
+        return (
+            <div>
+                <p>{comment.body}</p>
+                <h5>by {comment.author}</h5>
+                <Auth author={comment.author} user={user}>
+                    <Delete handleDelete={handleDelete} />
+                </Auth>
+                <Vote item={comment} changeVote={() => { this.changeVote(comment, 1) }} type='like' />
+                <p>{comment.votes + this.state.voteChange}</p>
+                <Vote item={comment} changeVote={() => { this.changeVote(comment, -1) }} type='dislike' />
+            </div>
+        )
+    }
+
+    changeVote = (comment, change) => {
+        this.setState((prevState => {
+            if (prevState.voteChange !== change) {
+                const newVoteVal = prevState.voteChange + change;
+                updateCommentVotes(comment.comment_id, change);
+                return { voteChange: newVoteVal }
+            }
+        }))
+    }
 }
+
 
 export default Comment;
