@@ -36,6 +36,8 @@ class App extends Component {
           })}
           <Header path="/articles/*" title={title} subtitle={subtitle} />
           <Header path="/new-article" title={title} subtitle={subtitle} />
+          <Header path="/sign-up" title={'Sign Up'} subtitle={'join the team'} />
+          <Header path="/error" title={'Uhoh...'} subtitle={'looks like something went wrong'} />
         </Router>
 
         <NavBar topics={this.state.topics} />
@@ -80,6 +82,7 @@ class App extends Component {
           this.setState({ userData, currentUser })
         })
         .catch(err => {
+          console.log('error 404!!!!')
           navigate('/error')
         })
     }

@@ -79,6 +79,17 @@
   border-radius: 0 0 0 3em;
 }
 
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
 .articleCard {
   border: 0.1em solid rgba(126, 126, 126, 0.473);
   border-radius: 1em;

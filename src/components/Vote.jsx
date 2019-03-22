@@ -2,9 +2,7 @@ import React from 'react';
 
 const Vote = ({ item, changeVote, type }) => {
     return (
-        <div>
-            <button onClick={changeVote}>{type}</button>
-        </div>
+        <i className={`fas fa-angle-${type}`} onClick={changeVote} />
     )
 }
 

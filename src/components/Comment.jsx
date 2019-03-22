@@ -21,9 +21,9 @@ class Comment extends Component {
                     <Delete handleDelete={handleDelete} />
                 </AuthDelete>
                 <div className="voteIcon">
-                    <Vote item={comment} changeVote={() => { this.changeVote(comment, 1) }} type='like' />
+                    <Vote item={comment} changeVote={() => { this.changeVote(comment, 1) }} type='up' />
                     <p>{comment.votes + this.state.voteChange}</p>
-                    <Vote item={comment} changeVote={() => { this.changeVote(comment, -1) }} type='dislike' />
+                    <Vote item={comment} changeVote={() => { this.changeVote(comment, -1) }} type='down' />
                 </div>
             </div>
         )

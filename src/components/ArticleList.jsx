@@ -21,15 +21,17 @@ class ArticleList extends Component {
     if (articles.length === 0) return <h2 className="softNotice">No Articles Posted Yet</h2>
 
     return <div>
-      <select onClick={(event) => { this.handleSelect('order', event.target.value) }} className="orderSelect">
-        <option value="created_at">date</option>
-        <option value="votes">votes</option>
-        <option value="comment_count">comments</option>
-      </select>
-      <select onClick={(event) => { this.handleSelect('orderBy', event.target.value) }} className="orderBySelect">
-        <option value="desc">high to low</option>
-        <option value="asc">low to high</option>
-      </select>
+      <div className="orderSelect">
+        <select onClick={(event) => { this.handleSelect('order', event.target.value) }}>
+          <option value="created_at">date</option>
+          <option value="votes">votes</option>
+          <option value="comment_count">comments</option>
+        </select>
+        <select onClick={(event) => { this.handleSelect('orderBy', event.target.value) }} className="orderBySelect">
+          <option value="desc">high to low</option>
+          <option value="asc">low to high</option>
+        </select>
+      </div>
       <ul>
         {articles.map(article => {
           return <div key={article.article_id}>

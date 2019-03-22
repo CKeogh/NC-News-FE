@@ -4,7 +4,7 @@ import { Link } from '@reach/router';
 const TopicsList = ({ topics }) => {
     return (
         <ul className="topicsList">
-            <Link className="link" to="/topics">All Topics</Link>
+            <Link className="link" to="/">All Topics</Link>
             {topics.map((topic) => {
                 return <Link className="link" key={topic.slug} to={`/${topic.slug}`}>{topic.slug}</Link>
             })}
