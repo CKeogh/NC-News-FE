@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
-import { getTopics, getUsers } from './api'
+import { getTopics, getUser } from './api'
 import MainContent from './components/MainContent';
 import { Router } from '@reach/router';
 import Header from './components/Header';
 import FloatBar from './components/FloatBar';
 import SideBar from './components/SideBar';
 import { navigate } from '@reach/router/lib/history';
+import Footer from './components/Footer';
 
 class App extends Component {
 
   state = {
     topics: [],
-    users: [],
-    user: '',
+    userData: {},
+    currentUser: '',
     title: 'NC News',
     subtitle: ''
   }
 
   render() {
-    const { topics, user, users, title, subtitle } = this.state
+    const { topics, currentUser, userData, title, subtitle } = this.state
 
     return (
       <div className="App">
 
-        <FloatBar setUser={this.setUser} user={user} userData={users} />
+        <FloatBar setUser={this.setUser} user={currentUser} userData={userData} />
 
         <Router className="header">
           <Header path="/topics" title={'Topics'} subtitle='pick a topic' />
@@ -41,13 +42,13 @@ class App extends Component {
 
         <Router className="mainContent">
           {topics.map(topic => {
-            return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug} user={user} />
+            return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug} user={currentUser} />
           })}
-          <MainContent users={users} path="/*" topics={topics} setUser={this.setUser} user={user} updateTopics={this.updateTopics} />
+          <MainContent path="/*" topics={topics} setUser={this.setUser} user={currentUser} updateTopics={this.updateTopics} />
         </Router>
 
-        <SideBar user={user} />
-        <footer className="footer">Footer</footer>
+        <SideBar user={currentUser} />
+        <Footer />
       </div>
     );
   }
@@ -56,10 +57,6 @@ class App extends Component {
     getTopics()
       .then(topics => {
         this.setState({ topics })
-      })
-    getUsers()
-      .then(users => {
-        this.setState({ users })
       })
   }
 
@@ -73,13 +70,19 @@ class App extends Component {
   }
 
   setUser = (newUser) => {
-    const usernames = this.state.users.map(user => user.username)
     if (newUser === '') {
-      this.setState({ user: newUser })
-    } else if (!usernames.includes(newUser)) {
-      alert(`user doesn't exist!`)
+      this.setState({ currentUser: newUser })
     } else {
-      this.setState({ user: newUser })
+      getUser(newUser)
+        .then((data) => {
+          const currentUser = data.user.username
+          const userData = data.user
+          this.setState({ userData, currentUser })
+        })
+        .catch(err => {
+          console.log(err)
+          navigate('/error')
+        })
     }
   }
 

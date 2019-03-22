@@ -9,15 +9,17 @@ import Error from './Error';
 import TopicsList from './TopicsList';
 
 const MainContent = (props) => {
+  const { topics, user, updateTopics, setUser, topic } = props
   return (
     <Router>
-      <TopicsList path="/topics" topics={props.topics} />
-      <NewArticle topics={props.topics} user={props.user} path="/new-article" />
-      <NewTopic path="/new-topic" updateTopics={props.updateTopics} />
-      <SignUp path="/sign-up" users={props.users} setUser={props.setUser} />
-      <ArticleList path="/" topic={props.topic} user={props.user} />
-      <Article path="/articles/:article_id" user={props.user} />
-      <Error defaulted path="/error" />
+      <Article path="/articles/:article_id" user={user} />
+      <TopicsList path="/topics" topics={topics} />
+      <NewArticle path="/new-article" topics={topics} user={user} />
+      <NewTopic path="/new-topic" user={user} updateTopics={updateTopics} />
+      <SignUp path="/sign-up" setUser={setUser} />
+      <ArticleList path="/" topic={topic} user={user} />
+      <ArticleList path="/articles" topic={topic} user={user} />
+      <Error path="/error" default />
     </Router>
   )
 }

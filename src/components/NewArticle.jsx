@@ -11,9 +11,9 @@ class NewArticle extends Component {
     render() {
         const { topics } = this.props
         return (
-            <form action="" method="post" id="newArticle">
-                <textarea onChange={(event) => this.handleChange('title', event.target.value)} id="newArticle-title" value={this.state.title} form_id="newArticle" />
-                <textarea onChange={(event) => this.handleChange('body', event.target.value)} id="newArticle-body" value={this.state.body} form_id="newArticle" />
+            <form method="post" id="newArticle">
+                <textarea onChange={(event) => this.handleChange('title', event.target.value)} id="newArticle-title" form_id="newArticle" />
+                <textarea onChange={(event) => this.handleChange('body', event.target.value)} id="newArticle-body" form_id="newArticle" />
 
                 <select value={this.state.topic} onChange={(event) => this.handleChange('topic', event.target.value)}>
                     {topics.map(topic => {
@@ -21,7 +21,7 @@ class NewArticle extends Component {
                     })}
                 </select>
 
-                <input type="submit" onClick={this.handleSubmit} value="post article"></input>
+                <input onClick={this.handleSubmit} type="submit" value="post article"></input>
             </form>
         )
     }
@@ -40,16 +40,21 @@ class NewArticle extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const { title, body, topic } = this.state;
+
         const newArticle = {
             title, body, topic, author: this.props.user
         };
-        postArticle(newArticle)
-            .then(newArticle => {
-                navigate(`/articles/${newArticle.article_id}`)
-            })
-            .catch(err => {
-                navigate('/error')
-            })
+        if (!newArticle.title || !newArticle.body) alert('please fill in all fields')
+        else if (!newArticle.author) alert('you must be logged in to post an article')
+        else {
+            postArticle(newArticle)
+                .then(newArticle => {
+                    navigate(`/articles/${newArticle.article_id}`)
+                })
+                .catch(err => {
+                    navigate('/error')
+                })
+        }
     }
 
 

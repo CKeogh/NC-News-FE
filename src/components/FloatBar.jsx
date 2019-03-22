@@ -8,7 +8,7 @@ const FloatBar = ({ setUser, user, userData }) => {
     <div className="floatBar">
       <div className="login">
         <AuthUser user={user}>
-          <UserHead setUser={setUser} username={user} userData={userData} />
+          <UserHead setUser={setUser} userData={userData} />
           <Login setUser={setUser} />
         </AuthUser>
       </div>

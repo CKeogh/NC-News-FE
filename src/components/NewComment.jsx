@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { postComment } from '../api';
-import { navigate } from '@reach/router/lib/history';
 
 class NewComment extends Component {
 
@@ -30,14 +29,15 @@ class NewComment extends Component {
             username: this.props.user,
             body: this.state.commentBody
         };
-        this.setState({ commentBody: '' });
-        postComment(this.props.article_id, newComment)
-            .then(comment => {
-                this.props.updateComments()
-            })
-            .catch(err => {
-                navigate('/error')
-            })
+        if (newComment.username && newComment.body) {
+            this.setState({ commentBody: '' });
+            postComment(this.props.article_id, newComment)
+                .then(comment => {
+                    this.props.updateComments()
+                })
+        } else if (!newComment.username) {
+            alert('you must be signed in to post comments')
+        }
     }
 }
 

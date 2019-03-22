@@ -64,3 +64,8 @@ export const addUser = async (body) => {
     const { data } = await request.post('/users', body);
     return data.user;
 }
+
+export const getUser = async (username) => {
+    const { data } = await request.get(`/users/${username}`);
+    return data
+}

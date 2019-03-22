@@ -14,7 +14,6 @@ class CommentsList extends Component {
 
         const { comments } = this.state;
         const { article_id, user } = this.props;
-
         return (
             <div className="comments">
                 <h3>COMMENTS</h3>
@@ -27,6 +26,11 @@ class CommentsList extends Component {
                 })}
             </div>
         )
+    }
+
+    componentDidMount() {
+        getComments(this.props.article_id)
+            .then(comments => { this.setState({ comments }) })
     }
 
     componentDidUpdate(prevProps) {

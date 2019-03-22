@@ -34,22 +34,17 @@ class SignUp extends Component {
     submitNewUser = (event) => {
         event.preventDefault()
         const { name, username, avatar_url } = this.state;
-        const usernames = this.props.users.map(user => user.username)
         if (!name || !username) {
             alert('please fill in all fields')
         } else {
-            if (usernames.includes(username)) {
-                alert('username already taken')
-            } else {
-                addUser({ name, username, avatar_url })
-                    .then((user) => {
-                        this.props.setUser(user.username) // NEED TO FIX!
-                        navigate('/')
-                    })
-                    .catch(err => {
-                        navigate('/error')
-                    })
-            }
+            addUser({ name, username, avatar_url })
+                .then((user) => {
+                    this.props.setUser(user.username)
+                    navigate('/')
+                })
+                .catch(err => {
+                    navigate('/error')
+                })
         }
     }
 }

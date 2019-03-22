@@ -33,14 +33,18 @@ class NewTopic extends Component {
             slug: formatSlug(this.state.title),
             description: this.state.description
         }
-        postTopic(newTopic)
-            .then(topic => {
-                this.props.updateTopics()
-                navigate('/new-article', { state: { topic: topic.slug } })
-            })
-            .catch(err => {
-                navigate('/error')
-            })
+        if (!newTopic.slug) alert('please give your topic a title')
+        else if (!this.props.user) alert('you must be logged in to post a new topic')
+        else {
+            postTopic(newTopic)
+                .then(topic => {
+                    this.props.updateTopics()
+                    navigate('/new-article', { state: { topic: topic.slug } })
+                })
+                .catch(err => {
+                    navigate('/error')
+                })
+        }
     }
 }
 
