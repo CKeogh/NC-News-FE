@@ -3,6 +3,24 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+button {
+  background-color: #90AFC5;
+  border: 0.5px solid #336B87;
+  border-radius: 3px;
+  padding: 0.1em 0.5em;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: rgb(195, 215, 228)
+}
+
+textarea {
+  resize: none;
+}
+
 .App {
   display: grid;
   grid-template: 15em 3em 7fr 10em / 3fr 1fr;
@@ -32,11 +50,13 @@
 
 .title {
   font-size: 3em;
+  margin: 10px;
 }
 
 .subtitle {
   font-size: 2em;
-  color: rgb(182, 182, 182)
+  color: rgb(182, 182, 182);
+  margin: 10px;
 }
 
 .navBar {
@@ -55,20 +75,24 @@
   /* border: 0.1em solid rgba(17, 0, 255, 0.473); */
   background: #2A3132;
   color: white;
+  padding: 5px;
 }
 
 .sideBar {
   grid-area: sideBar;
   /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
-  background: #336B87;
+  background: #2A3132;
   color: white;
-
 }
 
 .footer {
   grid-area: footer;
   /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
   background: #763626
+}
+
+.sideBar-button {
+  margin: 5px;
 }
 
 .login {
@@ -105,10 +129,12 @@
 
 .articleCard-title {
   grid-area: title;
+  color: rgb(230, 230, 230);
 }
 
 .articleCard-author {
   grid-area: author;
+  color: grey;
 }
 
 .articleCard-topic {
@@ -117,18 +143,31 @@
 
 .articleInfo {
   grid-area: article_info;
+  justify-self: right;
+  text-align: right;
 }
 
 .articleCard-votes {
-  grid-area: votes;
+  /* grid-area: votes; */
+  font-size: 0.9em;
 }
 
 .articleCard-comment_count {
   grid-area: comment_count;
+  font-size: 1em;
 }
 
 .articleCard-created_at {
   grid-area: created_at;
+  font-size: 0.8em;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
 
 .floatBar {
@@ -140,12 +179,17 @@
   padding: 0 1rem;
   text-decoration: none;
   font-size: 2em;
-  border: 0.1em solid rgba(18, 170, 132, 0.473);
+  /* border: 0.1em solid rgba(18, 170, 132, 0.473); */
 }
 
 a {
   text-decoration: none;
   color: black;
+  transition: color 0.5s ease;
+}
+
+a:hover {
+  color: rgb(92, 92, 92);
 }
 
 li {
@@ -156,33 +200,10 @@ ul {
   padding: 2px;
 }
 
-.comments {
-  border: 0.1em solid rgba(170, 18, 25, 0.473);
-}
 
-.comment {
-  border: 0.1em solid rgba(33, 18, 170, 0.432);
-}
-
-.articleCard-title {
-  color: white;
-}
-
-.articleCard-author {
-  color: rgb(182, 182, 182);
-}
-
-.articleCard-comment_count {
-  color: rgb(182, 182, 182);
-}
-
-.articleCard-votes {
-  color: rgb(182, 182, 182);
-}
-
-.articleCard-created_at {
-  color: rgb(182, 182, 182);
-
+.loginPrompt {
+  text-align: center;
+  color: grey;
 }
 
 #newArticle {
@@ -212,7 +233,63 @@ ul {
 .avatarImg {
   height: 3em;
   width: auto;
-  border-radius: 100%;
+  border-radius: 5em;
+  background-clip: padding-box;
+}
+
+.comments {
+  border: 0.1em solid #763626;
+  border-radius: 3px;
+}
+
+.comment {
+  border: 0.1em solid rgba(68, 68, 68, 0.473);
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px;
+  display: grid;
+  grid-template: 5fr 1fr / 5fr 1fr;
+  grid-template-areas: 
+  'comment-body comment-voteIcon'
+  'comment-author comment-delete';
+}
+
+.comment-body {
+  grid-area: comment-body;
+}
+
+.comment-author {
+  grid-area: comment-author;
+}
+
+.comment-delete {
+  grid-area: comment-delete;
+}
+
+.comment-voteIcon {
+  grid-area: comment-voteIcon;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.newComment {
+  margin: 5px;
+  display: grid;
+  grid-template: 2fr 1fr / 1fr 5fr;
+  grid-template-areas: 
+  'newComment-field newComment-field'
+  'newComment-submit .';
+}
+
+#newComment-field {
+  grid-area: newComment-field;
+  margin: 5px 0;
+}
+
+#newComment-submit {
+  grid-area: newComment-submit;
+  margin: 5px 0;
 }
 
 .userHead {
@@ -265,4 +342,10 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+  .mainContent {
+    
+  }
 }

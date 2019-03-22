@@ -11,18 +11,19 @@ class Comment extends Component {
     }
 
     render() {
-
         const { comment, handleDelete, user } = this.props
+        const voteToDisplay = comment.votes + this.state.voteChange;
+        const voteColour = voteToDisplay >= 0 ? 'green' : 'red'
         return (
-            <div>
-                <p>{comment.body}</p>
-                <h5>by {comment.author}</h5>
+            <div className="comment">
+                <p className="comment-body">{comment.body}</p>
+                <h5 className="comment-author">by {comment.author}</h5>
                 <AuthDelete author={comment.author} user={user}>
-                    <Delete handleDelete={handleDelete} />
+                    <Delete className="comment-delete" handleDelete={handleDelete} />
                 </AuthDelete>
-                <div className="voteIcon">
+                <div className="comment-voteIcon">
                     <Vote item={comment} changeVote={() => { this.changeVote(comment, 1) }} type='up' />
-                    <p>{comment.votes + this.state.voteChange}</p>
+                    <p className={voteColour} >{voteToDisplay}</p>
                     <Vote item={comment} changeVote={() => { this.changeVote(comment, -1) }} type='down' />
                 </div>
             </div>

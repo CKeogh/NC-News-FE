@@ -7,7 +7,7 @@ const SideBar = ({ user }) => {
         <div className="sideBar">
             <AuthUser user={user}>
                 <div>
-                    <Link to="/new-article"><button>Post Article</button></Link>
+                    <Link to="/new-article"><button className="sideBar-button">Post Article</button></Link>
                     <Link to="/new-topic"><button>Create a New Topic</button></Link>
                 </div>
                 <p className="loginPrompt">Login to post an article and create new topics</p>
