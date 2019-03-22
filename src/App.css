@@ -30,21 +30,13 @@ textarea {
   'mainContent sideBar'
   'footer footer';
   height: 100vh;
-
 }
-
-/* colors: 
-  #90AFC5
-  #336B87
-  #2A3132
-  #763626
-*/
 
 .header {
   grid-area: header;
   /* border: 0.1em solid rgba(9, 255, 0, 0.473); */
   color: white;
-  background: #763626
+  background: #a10b0b;
   /* background: url('https://lifesignsblog.com/wp-content/uploads/2016/01/header-background.jpg') */
 }
 
@@ -63,7 +55,7 @@ textarea {
   grid-area: navBar;
   /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
   font-size: 2em;
-  background: #763626;
+  background: #a10b0b;
 }
 
 .navItem {
@@ -88,20 +80,13 @@ textarea {
 .footer {
   grid-area: footer;
   /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
-  background: #763626
+  background: #a10b0b
 }
 
 .sideBar-button {
   margin: 5px;
 }
 
-.login {
-  float: right;
-  margin: 0;
-  padding: 20px 10vw;
-  background: rgba(122, 122, 122, 0.63);
-  border-radius: 0 0 0 3em;
-}
 
 .select-selected:after {
   position: absolute;
@@ -148,18 +133,19 @@ textarea {
 }
 
 .articleCard-votes {
-  /* grid-area: votes; */
   font-size: 0.9em;
 }
 
 .articleCard-comment_count {
   grid-area: comment_count;
   font-size: 1em;
+  color: grey;
 }
 
 .articleCard-created_at {
   grid-area: created_at;
   font-size: 0.8em;
+  color: rgb(161, 161, 161);
 }
 
 .green {
@@ -172,7 +158,22 @@ textarea {
 
 .floatBar {
   position: fixed;
-  width: 100vw;
+  width: 30vw;
+  right: 0;
+  /* display: grid;
+  grid-template-columns: 3fr 1fr  */
+}
+
+.login {
+  /* float: right; */
+  margin: 0;
+  padding: 20px;
+  background: rgba(122, 122, 122, 0.63);
+  border-radius: 0 0 0 3em;
+}
+
+.userHead {
+  display: flex;
 }
 
 .link {
@@ -292,9 +293,6 @@ ul {
   margin: 5px 0;
 }
 
-.userHead {
-  display: flex;
-}
 
 .newUserForm {
   display: grid;
@@ -344,8 +342,130 @@ ul {
   justify-content: space-between;
 }
 
-@media only screen and (max-width: 600px) {
-  .mainContent {
-    
+
+/* LOADING ICON */
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 27px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
   }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
+  }
+}
+
+.w3-sidebar {
+  width: 200px;
+  right: 0;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .App {
+    display: grid;
+    grid-template: 15em 3em 7fr 10em / 3fr 1fr;
+    grid-template-areas: 
+    'header header'
+    'navBar navBar'
+    'mainContent mainContent'
+    'footer footer';
+    height: 100vh;
+  }
+
+
+.header {
+  grid-area: header;
+  /* border: 0.1em solid rgba(9, 255, 0, 0.473); */
+  color: white;
+  background: #763626
+  /* background: url('https://lifesignsblog.com/wp-content/uploads/2016/01/header-background.jpg') */
+}
+
+.title {
+  font-size: 3em;
+  margin: 10px;
+}
+
+.subtitle {
+  font-size: 2em;
+  color: rgb(182, 182, 182);
+  margin: 10px;
+}
+
+.navBar {
+  grid-area: navBar;
+  /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
+  font-size: 2em;
+  background: #763626;
+}
+
+.mainContent {
+  grid-area: mainContent;
+  /* border: 0.1em solid rgba(17, 0, 255, 0.473); */
+  background: #2A3132;
+  color: white;
+  padding: 5px;
+}
+
+.sideBar {
+  grid-area: sideBar;
+  /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
+  background: #2A3132;
+  color: white;
+  visibility: hidden;
+  position: fixed;
+}
+
+.footer {
+  grid-area: footer;
+  /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
+  background: #763626
+}
+
 }
