@@ -1,11 +1,11 @@
 * {
-  margin: 2px;
+  margin: 0;;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .App {
   display: grid;
-  grid-template: 10em 3em 7fr 7em / 3fr 1fr;
+  grid-template: 15em 3em 7fr 10em / 3fr 1fr;
   grid-template-areas: 
   'header header'
   'navBar navBar'
@@ -15,41 +15,75 @@
 
 }
 
+/* colors: 
+  #90AFC5
+  #336B87
+  #2A3132
+  #763626
+*/
+
 .header {
   grid-area: header;
-  border: 0.1em solid rgba(9, 255, 0, 0.473);
+  /* border: 0.1em solid rgba(9, 255, 0, 0.473); */
+  color: white;
+  background: #763626
+  /* background: url('https://lifesignsblog.com/wp-content/uploads/2016/01/header-background.jpg') */
+}
+
+.title {
+  font-size: 3em;
+}
+
+.subtitle {
+  font-size: 2em;
+  color: rgb(182, 182, 182)
 }
 
 .navBar {
   grid-area: navBar;
-  border: 0.1em solid rgba(255, 0, 55, 0.849);
+  /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
   font-size: 2em;
+  background: #763626;
+}
+
+.navItem {
+  color: white;
 }
 
 .mainContent {
   grid-area: mainContent;
-  border: 0.1em solid rgba(17, 0, 255, 0.473);
+  /* border: 0.1em solid rgba(17, 0, 255, 0.473); */
+  background: #2A3132;
+  color: white;
 }
 
 .sideBar {
   grid-area: sideBar;
-  border: 0.1em solid rgba(255, 196, 0, 0.473);
+  /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
+  background: #336B87;
+  color: white;
+
 }
 
 .footer {
   grid-area: footer;
-  border: 0.1em solid rgba(0, 255, 221, 0.473);
+  /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
+  background: #763626
 }
 
 .login {
   float: right;
   margin: 0;
   padding: 20px 10vw;
-  background: rgba(0, 0, 0, 0.384);
+  background: rgba(122, 122, 122, 0.63);
+  border-radius: 0 0 0 3em;
 }
 
 .articleCard {
-  border: 0.1em solid rgba(157, 255, 0, 0.473);
+  border: 0.1em solid rgba(126, 126, 126, 0.473);
+  border-radius: 1em;
+  padding: 0.5em;
+  margin: 0.2em;
   display: grid;
   grid-template: 2fr 1fr 1fr / 6fr 2fr;
   grid-template-areas: 
@@ -117,6 +151,27 @@ ul {
 
 .comment {
   border: 0.1em solid rgba(33, 18, 170, 0.432);
+}
+
+.articleCard-title {
+  color: white;
+}
+
+.articleCard-author {
+  color: rgb(182, 182, 182);
+}
+
+.articleCard-comment_count {
+  color: rgb(182, 182, 182);
+}
+
+.articleCard-votes {
+  color: rgb(182, 182, 182);
+}
+
+.articleCard-created_at {
+  color: rgb(182, 182, 182);
+
 }
 
 #newArticle {

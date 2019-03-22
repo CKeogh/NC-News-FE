@@ -80,14 +80,9 @@ class App extends Component {
           this.setState({ userData, currentUser })
         })
         .catch(err => {
-          console.log(err)
           navigate('/error')
         })
     }
-  }
-
-  setHeader = (title, subtitle) => {
-
   }
 }
 
