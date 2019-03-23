@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router'
 
-const NavBar = ({ topics }) => {
+const NavBar = (props) => {
     return (
         <nav className="navBar">
             <Link className="navItem" to="/topics">Topics</Link>

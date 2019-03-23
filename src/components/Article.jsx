@@ -20,9 +20,9 @@ class Article extends Component {
 
       <div>
         <div className="article">
-          <h2>{article.title}</h2>
-          <h5>by {article.author}</h5>
-          <p>{article.body}</p>
+          <h2 className="article-title" >{article.title}</h2>
+          <h5 className="article-author" >by {article.author}</h5>
+          <p className="article-body" >{article.body}</p>
         </div>
         <Vote item={article} changeVote={() => { this.changeVote(article, 1) }} type={'up'} />
         <p>{article.votes + this.state.voteChange}</p>

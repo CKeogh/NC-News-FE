@@ -29,7 +29,8 @@ class App extends Component {
         <FloatBar setUser={this.setUser} user={currentUser} userData={userData} />
 
         <Router className="header">
-          <Header path="/topics" title={'Topics'} subtitle='pick a topic' />
+          <Header path="/topics" title='Topics' subtitle='pick a topic' />
+          <Header path="/new-topic" title={title} subtitle='Post a new topic' />
           <Header path="/" title={title} subtitle={subtitle} />
           {topics.map(topic => {
             return <Header path={`/${topic.slug}`} key={`header_${topic.slug}`} title={topic.slug} subtitle={topic.description} />
@@ -40,7 +41,7 @@ class App extends Component {
           <Header path="/error" title={'Uhoh...'} subtitle={'looks like something went wrong'} />
         </Router>
 
-        <NavBar topics={this.state.topics} />
+        <NavBar />
 
         <Router className="mainContent">
           {topics.map(topic => {
@@ -51,7 +52,7 @@ class App extends Component {
 
         <SideBar user={currentUser} />
         <Footer />
-      </div>
+      </div >
     );
   }
 

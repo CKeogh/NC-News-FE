@@ -1,20 +1,32 @@
 * {
-  margin: 0;;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
 }
 
 button {
-  background-color: #90AFC5;
-  border: 0.5px solid #336B87;
+  background-color: rgb(75, 75, 75);
+  border: 0.5px solid rgb(156, 156, 156);
+  color: white;
   border-radius: 3px;
   padding: 0.1em 0.5em;
   text-decoration: none;
   font-size: 1em;
-  transition: background-color 0.5s ease;
+  transition: 0.5s ease;
+  transition-property: background-color color;
 }
 
 button:hover {
-  background-color: rgb(195, 215, 228)
+  background-color: rgb(187, 187, 187);
+  color: rgb(65, 65, 65)
+}
+
+.arrow-button {
+  color: white;
+  transition: color 0.5s ease
+}
+
+.arrow-button:hover {
+  color: grey;
 }
 
 textarea {
@@ -34,28 +46,27 @@ textarea {
 
 .header {
   grid-area: header;
-  /* border: 0.1em solid rgba(9, 255, 0, 0.473); */
   color: white;
-  background: #a10b0b;
-  /* background: url('https://lifesignsblog.com/wp-content/uploads/2016/01/header-background.jpg') */
+  background: hsl(353, 71%, 43%);
+  padding: auto;
 }
 
 .title {
-  font-size: 3em;
-  margin: 10px;
+  font-size: 4em;
+  margin: 60px 30px 30px 30px;
 }
 
 .subtitle {
   font-size: 2em;
   color: rgb(182, 182, 182);
-  margin: 10px;
+  margin: 30px;
 }
 
 .navBar {
   grid-area: navBar;
   /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
   font-size: 2em;
-  background: #a10b0b;
+  background: #BA1F31;
 }
 
 .navItem {
@@ -65,9 +76,9 @@ textarea {
 .mainContent {
   grid-area: mainContent;
   /* border: 0.1em solid rgba(17, 0, 255, 0.473); */
-  background: #2A3132;
+  background: hsl(0, 0%, 19%);
   color: white;
-  padding: 5px;
+  padding: 10px;
 }
 
 .sideBar {
@@ -80,7 +91,19 @@ textarea {
 .footer {
   grid-area: footer;
   /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
-  background: #a10b0b
+  background: #BA1F31;
+  ;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas: '. githubLink'
+}
+
+.githubLink {
+  grid-area: githubLink;
+  color: rgb(49, 49, 49);
+  font-size: 40px;
+  justify-self: center;
+  align-self: center;
 }
 
 .sideBar-button {
@@ -119,7 +142,7 @@ textarea {
 
 .articleCard-author {
   grid-area: author;
-  color: grey;
+  color: hsl(0, 0%, 50%);
 }
 
 .articleCard-topic {
@@ -148,6 +171,19 @@ textarea {
   color: rgb(161, 161, 161);
 }
 
+.article-title {
+  margin: 10px 0;
+}
+
+.article-author {
+  margin: 10px 0;
+  color: grey;
+}
+
+.article-body {
+  margin: 10px 0;
+}
+
 .green {
   color: green;
 }
@@ -156,31 +192,131 @@ textarea {
   color: red;
 }
 
+.dark {
+  color: rgb(117, 117, 117)
+}
+
+.medium {
+  color: rgb(179, 179, 179)
+}
+
+.light {
+  color: rgb(219, 219, 219)
+}
+
+
 .floatBar {
   position: fixed;
-  width: 30vw;
+  width: 300px;
   right: 0;
+  color: white;
+  background: rgb(56, 56, 56);
+  border-radius: 0 0 0 1em;
+
+
   /* display: grid;
   grid-template-columns: 3fr 1fr  */
 }
 
 .login {
-  /* float: right; */
-  margin: 0;
-  padding: 20px;
-  background: rgba(122, 122, 122, 0.63);
-  border-radius: 0 0 0 3em;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  grid-template-areas: 
+  'label input input'
+  '. login-button signup-button';
+  height: 60px;
+  /* justify-content: center; */
+}
+
+#username-label {
+  grid-area: label;
+  font-size: 1em;
+  justify-self: center;
+  align-self: center;
+
+}
+
+#username-input {
+  grid-area: input;
+  font-size: 0.8em;
+  width: 95%;
+  justify-self: right;
+  align-self: center;
+  margin: 0 5px;
+}
+
+#login-button {
+  grid-area: login-button;
+  justify-self: left;
+  align-self: center;
+  width: 90px;
+}
+
+#signup-button {
+  grid-area: signup-button;
+  justify-self: right;
+  align-self: center;
+  width: 90px;
+  margin: 0 5px;
 }
 
 .userHead {
+  display: grid;
+  grid-template: 1fr / 2fr 1fr 1fr;
+  grid-template-areas: 
+  'text avatarImg logout';
+  height: 60px;
+  /* justify-content: center; */
+}
+
+.userHead-text {
+  grid-area: text;
+  font-size: 0.8em;
+  justify-self: center;
+  align-self: center;
+}
+
+.userHead-avatarImg {
+  grid-area: avatarImg;
+  height: 3em;
+  width: auto;
+  border-radius: 50%;
+  background-clip: padding-box;
+  justify-self: left;
+  align-self: center;
+}
+
+
+.userHead-logout {
+  grid-area: logout;
+  height: 25px;
+  justify-self: left;
+  align-self: center;
+}
+
+
+.topicsList {
   display: flex;
+  flex-wrap: wrap;
+  height: 50vh;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  align-content: flex-start;
 }
 
 .link {
-  padding: 0 1rem;
+  padding: 0 1em;
   text-decoration: none;
   font-size: 2em;
+  transition: transform 0.1s ease;
+  transform-origin: 10%;
+  color: white;
   /* border: 0.1em solid rgba(18, 170, 132, 0.473); */
+}
+
+.link:hover {
+  transform: scale(1.1);
+  color: hsl(353, 71%, 43%);
 }
 
 a {
@@ -231,15 +367,8 @@ ul {
   font-size: 1rem;
 }
 
-.avatarImg {
-  height: 3em;
-  width: auto;
-  border-radius: 5em;
-  background-clip: padding-box;
-}
-
 .comments {
-  border: 0.1em solid #763626;
+  border: 0.1em solid hsl(0, 50%, 34%);
   border-radius: 3px;
 }
 
@@ -261,10 +390,19 @@ ul {
 
 .comment-author {
   grid-area: comment-author;
+  color: grey;
 }
 
 .comment-delete {
   grid-area: comment-delete;
+  align-self: center;
+  justify-self: center;
+  color: grey;
+  transition: color 0.5s ease;
+}
+
+.comment-delete:hover {
+  color: rgb(223, 223, 223);
 }
 
 .comment-voteIcon {
@@ -336,11 +474,6 @@ ul {
   color: rgba(0, 0, 0, 0.514)
 }
 
-.topicsList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 
 
 /* LOADING ICON */
@@ -418,31 +551,31 @@ ul {
     height: 100vh;
   }
 
+.topicsList {
+  height: auto;
+  justify-content: center;
+}
 
 .header {
   grid-area: header;
-  /* border: 0.1em solid rgba(9, 255, 0, 0.473); */
-  color: white;
-  background: #763626
   /* background: url('https://lifesignsblog.com/wp-content/uploads/2016/01/header-background.jpg') */
 }
 
 .title {
   font-size: 3em;
-  margin: 10px;
+  margin: 60px 30px 30px 30px;
 }
 
 .subtitle {
   font-size: 2em;
   color: rgb(182, 182, 182);
-  margin: 10px;
+  margin: 30px;
 }
 
 .navBar {
   grid-area: navBar;
   /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
   font-size: 2em;
-  background: #763626;
 }
 
 .mainContent {
@@ -465,7 +598,6 @@ ul {
 .footer {
   grid-area: footer;
   /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
-  background: #763626
 }
 
 }

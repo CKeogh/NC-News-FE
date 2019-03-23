@@ -8,11 +8,11 @@ class Login extends Component {
     }
     render() {
         return (
-            <div>
-                <label htmlFor="usernameInput">username: </label>
-                <input required onChange={this.handleChange} id="usernameInput"></input>
-                <button onClick={() => { this.props.setUser(this.state.username) }}>login</button>
-                <Link to="/sign-up"><button>sign up</button></Link>
+            <div className="login">
+                <label id="username-label" htmlFor="usernameInput">username: </label>
+                <input required onChange={this.handleChange} placeholder="example: jessjelly" id="username-input"></input>
+                <button id="login-button" onClick={() => { this.props.setUser(this.state.username) }}>login</button>
+                <Link id="signup-button" to="/sign-up"><button>sign up</button></Link>
             </div>
         )
     }

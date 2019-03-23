@@ -7,7 +7,7 @@ const Header = ({ title, subtitle }) => {
         <header>
             <h1 className="title">{capitalise(title)}</h1>
             <h2 className="subtitle">{subtitle}</h2>
-        </header>
+        </header >
     )
 }
 

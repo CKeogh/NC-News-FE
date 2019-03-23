@@ -2,7 +2,8 @@ import React from 'react';
 
 const Delete = ({ handleDelete }) => {
     return (
-        <button onClick={handleDelete} className="deleteButton">delete</button>
+        <i onClick={handleDelete} className="fas fa-trash-alt comment-delete"></i>
+        // <button onClick={handleDelete} className="comment-delete">delete</button>
     )
 }
 
