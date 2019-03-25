@@ -5,7 +5,7 @@
 2. avoid alerts
 3. comments not in any order
 4. ~~css for new topic~~
-4. css for post article
+4. ~~css for post article~~
 5. add sidebar to floatbar
 6. add vote up and down to articleCards?
 7. 
@@ -37,7 +37,7 @@ In comment card, ‘0’ looks a bit weird out of context (presumably number of 
 
 * ~~Some responsiveness to the cursor is very useful for accessibility reasons - buttons that change on hover, link text the underlines etc.~~
 
-* **Posting a comment without a body doesn’t do anything - a required attribute could be useful?**
+* ~~**Posting a comment without a body doesn’t do anything - a required attribute could be useful?**~~
 * ~~Really like that creating topic takes me to a new article page.~~
 * **No affordance on post new article page.**
 

@@ -25,9 +25,12 @@ class Article extends Component {
           <h5 className="article-author" >by {article.author}</h5>
           <p className="article-body" >{article.body}</p>
         </div>
-        <Vote item={article} changeVote={() => { this.changeVote(article, 1) }} type={'up'} />
-        <p>{article.votes + this.state.voteChange}</p>
-        <Vote className="voteDown" item={article} changeVote={() => { this.changeVote(article, -1) }} type={'down'} />
+        <div className="articleVote">
+          <Vote item={article} changeVote={() => { this.changeVote(article, 1) }} type={'up'} />
+          <p>{article.votes + this.state.voteChange}</p>
+          <Vote className="voteDown" item={article} changeVote={() => { this.changeVote(article, -1) }} type={'down'} />
+
+        </div>
         <CommentsList article_id={article.article_id} user={this.props.user} />
       </div>
     )

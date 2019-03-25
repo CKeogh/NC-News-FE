@@ -4,14 +4,17 @@ import { postComment } from '../api';
 class NewComment extends Component {
 
     state = {
-        commentBody: ''
+        commentBody: '',
+        error: {
+            body: ''
+        }
     }
 
 
     render() {
         return (
             <form className="newComment">
-                <textarea id="newComment-field" required value={this.state.commentBody} onChange={this.handleChange} />
+                <textarea id="newComment-field" className={this.state.error.body} required value={this.state.commentBody} onChange={this.handleChange} />
                 <button id="newComment-submit" onClick={this.handleSubmit}>post</button>
             </form>
         )
@@ -30,13 +33,15 @@ class NewComment extends Component {
             body: this.state.commentBody
         };
         if (newComment.username && newComment.body) {
-            this.setState({ commentBody: '' });
+            this.setState({ commentBody: '', error: { body: '' } });
             postComment(this.props.article_id, newComment)
                 .then(comment => {
                     this.props.updateComments()
                 })
         } else if (!newComment.username) {
             alert('you must be signed in to post comments')
+        } else if (!newComment.body) {
+            this.setState({ error: { body: 'redBorder' } })
         }
     }
 }

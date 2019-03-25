@@ -67,6 +67,7 @@ textarea {
   /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
   font-size: 2em;
   background: #BA1F31;
+  padding: 0 20px;
 }
 
 .navItem {
@@ -173,15 +174,22 @@ textarea {
 
 .article-title {
   margin: 10px 0;
+  padding: 5px;
 }
 
 .article-author {
   margin: 10px 0;
   color: grey;
+  padding: 5px;
 }
 
 .article-body {
   margin: 10px 0;
+  padding: 5px;
+}
+
+.articleVote {
+  padding: 5px;
 }
 
 .green {
@@ -202,6 +210,12 @@ textarea {
 
 .light {
   color: rgb(219, 219, 219)
+}
+
+.orderSelect select {
+  background-color: grey;
+  border-radius: 2px;
+  margin: 3px 5px;
 }
 
 .newTopic {
@@ -390,11 +404,11 @@ ul {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template: 1fr 5fr 1fr / 10rem 1fr;
+  grid-template: 1fr 5fr 1fr / 10rem 3fr 1fr;
   grid-template-areas:
-  'title title'
-  'body body'
-  'empty submit';
+  'title title topic'
+  'body body body'
+  'submit . .';
 }
 
 #newArticle-title {
@@ -402,6 +416,10 @@ ul {
   grid-area: title;
   text-align: center;
   font-size: 2rem;
+  height: 50px;
+  margin: 15px 0;
+  width: 80%;
+  justify-self: left;
 }
 
 #newArticle-body {
@@ -410,9 +428,28 @@ ul {
   font-size: 1rem;
 }
 
+#newArticle-topic {
+  grid-area: topic;
+  width: 130px;
+  height: 40px;
+  align-self: center;
+  justify-self: right;
+  background-color: rgb(172, 172, 172);
+  border: 0.2px solid rgb(109, 109, 109);
+  border-radius: 5px;
+}
+
+#newArticle-submit {
+  grid-area: submit;
+  width: 100px;
+  height: 40px;
+  align-self: center;
+}
+
 .comments {
   border: 0.1em solid hsl(0, 50%, 34%);
   border-radius: 3px;
+  padding: 5px;
 }
 
 .comment {
@@ -462,6 +499,10 @@ ul {
   grid-template-areas: 
   'newComment-field newComment-field'
   'newComment-submit .';
+}
+
+.redBorder {
+  border: solid 2px hsl(0, 80%, 50%);;
 }
 
 #newComment-field {
@@ -599,10 +640,10 @@ ul {
     justify-content: center;
   }
 
-.header {
-  grid-area: header;
-  /* background: url('https://lifesignsblog.com/wp-content/uploads/2016/01/header-background.jpg') */
-}
+  .header {
+    grid-area: header;
+    /* background: url('https://lifesignsblog.com/wp-content/uploads/2016/01/header-background.jpg') */
+  }
 
   .title {
     font-size: 3em;
@@ -624,7 +665,7 @@ ul {
   .mainContent {
     grid-area: mainContent;
     /* border: 0.1em solid rgba(17, 0, 255, 0.473); */
-    background: #2A3132;
+    background: hsl(187, 9%, 18%);
     color: white;
     padding: 5px;
   }
@@ -632,7 +673,7 @@ ul {
   .sideBar {
     grid-area: sideBar;
     /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
-    background: #2A3132;
+    background: hsl(187, 9%, 18%);
     color: white;
     visibility: hidden;
     position: fixed;
@@ -652,4 +693,15 @@ ul {
     width: 50vw;
   }
 
+
+  #newArticle {
+    grid-template-areas:
+    'title title title'
+    'body body body'
+    'submit . topic';
+  }
+  
+  #newArticle-title {
+    justify-self: center;
+  }
 }

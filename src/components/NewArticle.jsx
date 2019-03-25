@@ -15,13 +15,13 @@ class NewArticle extends Component {
                 <textarea placeholder="Choose a title" onChange={(event) => this.handleChange('title', event.target.value)} id="newArticle-title" form_id="newArticle" />
                 <textarea placeholder="Write your article" onChange={(event) => this.handleChange('body', event.target.value)} id="newArticle-body" form_id="newArticle" />
 
-                <select value={this.state.topic} onChange={(event) => this.handleChange('topic', event.target.value)}>
+                <select id="newArticle-topic" value={this.state.topic} onChange={(event) => this.handleChange('topic', event.target.value)}>
                     {topics.map(topic => {
                         return <option key={`topicselect-${topic.slug}`} value={topic.slug}>{topic.slug}</option>
                     })}
                 </select>
 
-                <input onClick={this.handleSubmit} type="submit" value="post article"></input>
+                <button id="newArticle-submit" onClick={this.handleSubmit} type="submit" value="post article">post article</button>
             </form>
         )
     }
