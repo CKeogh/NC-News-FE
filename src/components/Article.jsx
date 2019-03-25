@@ -3,6 +3,7 @@ import { getArticle, updateArticleVotes } from '../api'
 import CommentsList from './CommentsList';
 import Vote from './Vote';
 import Loading from './Loading';
+import { navigate } from '@reach/router/lib/history';
 
 class Article extends Component {
 
@@ -39,6 +40,9 @@ class Article extends Component {
           article,
           isLoading: false
         })
+      })
+      .catch(err => {
+        navigate('/error')
       })
   }
 

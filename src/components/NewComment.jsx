@@ -10,10 +10,10 @@ class NewComment extends Component {
 
     render() {
         return (
-            <div className="newComment">
-                <textarea id="newComment-field" value={this.state.commentBody} onChange={this.handleChange} />
+            <form className="newComment">
+                <textarea id="newComment-field" required value={this.state.commentBody} onChange={this.handleChange} />
                 <button id="newComment-submit" onClick={this.handleSubmit}>post</button>
-            </div>
+            </form>
         )
     }
 

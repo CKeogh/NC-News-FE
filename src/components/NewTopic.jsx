@@ -12,13 +12,13 @@ class NewTopic extends Component {
     render() {
 
         return (
-            <div>
-                <h2>Choose a title and description for your topic</h2>
-                <label htmlFor="newTopicTitle">Title</label>
-                <input placeholder="e.g. JavaScript" onChange={(event) => { this.handleChange('title', event.target.value) }} id="newTopicTitle" type="text"></input>
-                <label htmlFor="newTopicDesc">description</label>
-                <input placeholder="e.g. all about JavaScript" onChange={(event) => { this.handleChange('description', event.target.value) }} id="newTopicDesc" type="text"></input>
-                <button onClick={this.handleTopicSubmit} >Submit</button>
+            <div className="newTopic">
+                <h2 className="newTopic-title" >Choose a title and description for your topic</h2>
+                <label className="newTopic-slug" htmlFor="newTopicTitle">Title</label>
+                <input className="newTopic-slug-input" placeholder="e.g. JavaScript" onChange={(event) => { this.handleChange('title', event.target.value) }} id="newTopicTitle" type="text"></input>
+                <label className="newTopic-desc" htmlFor="newTopicDesc">description</label>
+                <input className="newTopic-desc-input" placeholder="e.g. all about JavaScript" onChange={(event) => { this.handleChange('description', event.target.value) }} id="newTopicDesc" type="text"></input>
+                <button className="newTopic-submit" onClick={this.handleTopicSubmit} >Submit</button>
             </div>
         )
     }

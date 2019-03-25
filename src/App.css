@@ -204,6 +204,49 @@ textarea {
   color: rgb(219, 219, 219)
 }
 
+.newTopic {
+  display: grid;
+  grid-template: 2fr 1fr 1fr 1fr / 1fr 4fr;
+  grid-template-areas: 
+  'newTopic-title newTopic-title'
+  'newTopic-slug newTopic-slug-input'
+  'newTopic-desc newTopic-desc-input'
+  'newTopic-submit .';
+}
+
+.newTopic-title {
+  grid-area: newTopic-title;
+  margin: 5px;
+}
+
+.newTopic-slug {
+  grid-area: newTopic-slug;
+  margin: 10px 5px;
+}
+
+.newTopic-slug-input {
+  grid-area: newTopic-slug-input;
+  margin: 10px 0;
+  width: 150px;
+}
+
+.newTopic-desc {
+  grid-area: newTopic-desc;
+  margin: 10px 5px;
+}
+
+.newTopic-desc-input {
+  grid-area: newTopic-desc-input;
+  margin: 10px 0;
+  width: 300px;
+
+}
+
+.newTopic-submit {
+  grid-area: newTopic-submit;
+  margin: 10px 5px;
+  width: 100px;
+}
 
 .floatBar {
   position: fixed;
@@ -551,53 +594,62 @@ ul {
     height: 100vh;
   }
 
-.topicsList {
-  height: auto;
-  justify-content: center;
-}
+  .topicsList {
+    height: auto;
+    justify-content: center;
+  }
 
 .header {
   grid-area: header;
   /* background: url('https://lifesignsblog.com/wp-content/uploads/2016/01/header-background.jpg') */
 }
 
-.title {
-  font-size: 3em;
-  margin: 60px 30px 30px 30px;
-}
+  .title {
+    font-size: 3em;
+    margin: 60px 30px 30px 30px;
+  }
 
-.subtitle {
-  font-size: 2em;
-  color: rgb(182, 182, 182);
-  margin: 30px;
-}
+  .subtitle {
+    font-size: 2em;
+    color: rgb(182, 182, 182);
+    margin: 30px;
+  }
 
-.navBar {
-  grid-area: navBar;
-  /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
-  font-size: 2em;
-}
+  .navBar {
+    grid-area: navBar;
+    /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
+    font-size: 2em;
+  }
 
-.mainContent {
-  grid-area: mainContent;
-  /* border: 0.1em solid rgba(17, 0, 255, 0.473); */
-  background: #2A3132;
-  color: white;
-  padding: 5px;
-}
+  .mainContent {
+    grid-area: mainContent;
+    /* border: 0.1em solid rgba(17, 0, 255, 0.473); */
+    background: #2A3132;
+    color: white;
+    padding: 5px;
+  }
 
-.sideBar {
-  grid-area: sideBar;
-  /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
-  background: #2A3132;
-  color: white;
-  visibility: hidden;
-  position: fixed;
-}
+  .sideBar {
+    grid-area: sideBar;
+    /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
+    background: #2A3132;
+    color: white;
+    visibility: hidden;
+    position: fixed;
+  }
 
-.footer {
-  grid-area: footer;
-  /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
-}
+  .footer {
+    grid-area: footer;
+    /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
+  }
+
+
+  .newTopic-slug-input {
+    width: 30vw;
+  }
+
+  .newTopic-desc-input {
+    width: 50vw;
+  }
 
 }
