@@ -16,7 +16,7 @@ class SignUp extends Component {
                 <label id="newNameLabel" htmlFor="newName">name: </label>
                 <input required onChange={(e) => { this.handleChange('name', e.target.value) }} id="newName" type="text" />
                 <label id="newUsernameLabel" htmlFor="newUsername">username: </label>
-                <input required onChange={(e) => { this.handleChange('username', e.target.value) }} id="newUserName" type="text" />
+                <input required onChange={(e) => { this.handleChange('username', e.target.value) }} id="newUsername" type="text" />
                 <label id="newAvatarLabel" htmlFor="newAvatar">provide avatar link:</label>
                 <input required onChange={(e) => { this.handleChange('avatar_url', e.target.value) }} id="newAvatar" type="text" />
                 <button id="newUserSubmit" onClick={this.submitNewUser}>submit</button>

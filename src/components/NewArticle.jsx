@@ -6,13 +6,14 @@ class NewArticle extends Component {
     state = {
         title: '',
         body: '',
-        topic: 'coding'
+        topic: 'coding',
+        error: 'hidden'
     }
     render() {
         const { topics } = this.props
         return (
-            <form method="post" id="newArticle">
-                <textarea placeholder="Choose a title" onChange={(event) => this.handleChange('title', event.target.value)} id="newArticle-title" form_id="newArticle" />
+            <form id="newArticle">
+                <textarea placeholder="Choose a title" required onChange={(event) => this.handleChange('title', event.target.value)} id="newArticle-title" form_id="newArticle" />
                 <textarea placeholder="Write your article" onChange={(event) => this.handleChange('body', event.target.value)} id="newArticle-body" form_id="newArticle" />
 
                 <select id="newArticle-topic" value={this.state.topic} onChange={(event) => this.handleChange('topic', event.target.value)}>
@@ -22,6 +23,7 @@ class NewArticle extends Component {
                 </select>
 
                 <button id="newArticle-submit" onClick={this.handleSubmit} type="submit" value="post article">post article</button>
+                <p id="newArticle-error" className={this.state.error} visibility='hidden' >please fill in all fields!</p>
             </form>
         )
     }
@@ -44,7 +46,9 @@ class NewArticle extends Component {
         const newArticle = {
             title, body, topic, author: this.props.user
         };
-        if (!newArticle.title || !newArticle.body) alert('please fill in all fields')
+        if (!newArticle.title || !newArticle.body) {
+            this.setState({ error: 'visible' })
+        }
         else if (!newArticle.author) alert('you must be logged in to post an article')
         else {
             postArticle(newArticle)

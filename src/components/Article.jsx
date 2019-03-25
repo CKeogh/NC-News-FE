@@ -3,7 +3,7 @@ import { getArticle, updateArticleVotes } from '../api'
 import CommentsList from './CommentsList';
 import Vote from './Vote';
 import Loading from './Loading';
-import { navigate } from '@reach/router/lib/history';
+import { navigate } from '@reach/router';
 
 class Article extends Component {
 
@@ -45,7 +45,7 @@ class Article extends Component {
         })
       })
       .catch(err => {
-        navigate('/error')
+        navigate('/error', { state: { message: `Article doesn't exist` } })
       })
   }
 

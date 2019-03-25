@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from '@reach/router';
 import AuthUser from './AuthUser';
 
-const SideBar = ({ user }) => {
+const SideBar = ({ user, id }) => {
     return (
-        <div className="sideBar">
+        <div id={id}>
             <AuthUser user={user}>
                 <div>
                     <Link to="/new-article"><button className="sideBar-button">Post Article</button></Link>

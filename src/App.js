@@ -7,7 +7,7 @@ import { Router } from '@reach/router';
 import Header from './components/Header';
 import FloatBar from './components/FloatBar';
 import SideBar from './components/SideBar';
-import { navigate } from '@reach/router/lib/history';
+import { navigate } from '@reach/router';
 import Footer from './components/Footer';
 
 class App extends Component {
@@ -45,12 +45,12 @@ class App extends Component {
 
         <Router className="mainContent">
           {topics.map(topic => {
-            return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug} user={currentUser} />
+            return <MainContent path={`/${topic.slug}`} key={`content_${topic.slug}`} topic={topic.slug} user={currentUser} updateHeader={this.updateHeader} />
           })}
-          <MainContent path="/*" topics={topics} setUser={this.setUser} user={currentUser} updateTopics={this.updateTopics} />
+          <MainContent path="/*" topics={topics} setUser={this.setUser} user={currentUser} updateTopics={this.updateTopics} updateHeader={this.updateHeader} />
         </Router>
 
-        <SideBar user={currentUser} />
+        <SideBar id="sideBar-big" user={currentUser} />
         <Footer />
       </div >
     );
@@ -72,6 +72,11 @@ class App extends Component {
       })
   }
 
+  // updateHeader = (title, subtitle) => {
+  //   console.log('header updated!')
+  //   this.setState({ title, subtitle })
+  // }
+
   setUser = (newUser) => {
     if (newUser === '') {
       this.setState({ currentUser: newUser })
@@ -83,8 +88,7 @@ class App extends Component {
           this.setState({ userData, currentUser })
         })
         .catch(err => {
-          console.log('error 404!!!!')
-          navigate('/error')
+          navigate('/error', { state: { message: `user doesn't exist` } })
         })
     }
   }

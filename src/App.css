@@ -82,7 +82,7 @@ textarea {
   padding: 10px;
 }
 
-.sideBar {
+#sideBar-big {
   grid-area: sideBar;
   /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
   background: #2A3132;
@@ -351,6 +351,11 @@ textarea {
   align-self: center;
 }
 
+#sideBar-small {
+  visibility: hidden;
+  position: fixed;
+}
+
 
 .topicsList {
   display: flex;
@@ -408,7 +413,7 @@ ul {
   grid-template-areas:
   'title title topic'
   'body body body'
-  'submit . .';
+  'submit error .';
 }
 
 #newArticle-title {
@@ -445,6 +450,22 @@ ul {
   height: 40px;
   align-self: center;
 }
+
+#newArticle-error {
+  grid-area: error;
+  align-self: center;
+  color: rgb(253, 105, 105);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+
 
 .comments {
   border: 0.1em solid hsl(0, 50%, 34%);
@@ -518,7 +539,7 @@ ul {
 
 .newUserForm {
   display: grid;
-  grid-template: fr1 fr 3 / 1fr 1fr 1fr 1fr;
+  grid-template: 1fr 1fr 1fr 1fr / 1fr 3fr; 
   grid-template-areas: 
   'name nameInput'
   'username usernameInput'
@@ -528,30 +549,42 @@ ul {
 
 #newNameLabel {
   grid-area: name;
+  align-self: center;
+
 }
 
 #newName {
   grid-area: nameInput;
+  width: 15rem;
+  margin: 10px;
 }
 
 #newUsernameLabel {
   grid-area: username;
+  align-self: center;
 }
 
 #newUsername {
-  grid-area: userNameInput;
+  grid-area: usernameInput;
+  width: 15rem;
+  margin: 10px;
 }
 
 #newAvatarLabel {
   grid-area: avatar;
+  align-self: center;
 }
 
 #newAvatar {
   grid-area: avatarInput;
+  width: 15rem;
+  margin: 10px;
 }
 
 #newUserSubmit {
   grid-area: submit;
+  width: 10rem;
+  margin: 10px;
 }
 
 .softNotice {
@@ -626,7 +659,7 @@ ul {
 @media only screen and (max-width: 600px) {
   .App {
     display: grid;
-    grid-template: 15em 3em 7fr 10em / 3fr 1fr;
+    grid-template: 18em 3em 7fr 10em / 3fr 1fr;
     grid-template-areas: 
     'header header'
     'navBar navBar'
@@ -647,7 +680,7 @@ ul {
 
   .title {
     font-size: 3em;
-    margin: 60px 30px 30px 30px;
+    margin: 100px 30px 0px 30px;
   }
 
   .subtitle {
@@ -670,13 +703,34 @@ ul {
     padding: 5px;
   }
 
-  .sideBar {
+  #sideBar-big {
     grid-area: sideBar;
     /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
     background: hsl(187, 9%, 18%);
     color: white;
     visibility: hidden;
     position: fixed;
+  }
+
+  #sideBar-small {
+    visibility: visible;
+    position: relative;
+  }
+
+  .floatBar {
+    position: fixed;
+    width: 100vw;
+    color: white;
+    background: rgb(56, 56, 56);
+    border-radius: 0;
+  }
+
+  .login {
+    grid-template: 1fr 1fr / 2fr 2fr 1fr;
+  }
+
+  #login-button {
+    justify-self: right;
   }
 
   .footer {
@@ -695,12 +749,14 @@ ul {
 
 
   #newArticle {
+    justify-self: center;
+    grid-template: 1fr 5fr 1fr / 10rem 3fr 1fr;
     grid-template-areas:
     'title title title'
     'body body body'
     'submit . topic';
   }
-  
+
   #newArticle-title {
     justify-self: center;
   }

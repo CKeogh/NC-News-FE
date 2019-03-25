@@ -22,12 +22,12 @@ class ArticleList extends Component {
 
     return <div>
       <div className="orderSelect">
-        <select onClick={(event) => { this.handleSelect('order', event.target.value) }}>
+        <select onChange={(event) => { this.handleSelect('order', event.target.value) }}>
           <option value="created_at">date</option>
           <option value="votes">votes</option>
           <option value="comment_count">comments</option>
         </select>
-        <select onClick={(event) => { this.handleSelect('orderBy', event.target.value) }} className="orderBySelect">
+        <select onChange={(event) => { this.handleSelect('orderBy', event.target.value) }} className="orderBySelect">
           <option value="desc">high to low</option>
           <option value="asc">low to high</option>
         </select>

@@ -17,8 +17,8 @@ const MainContent = (props) => {
       <NewArticle path="/new-article" topics={topics} user={user} />
       <NewTopic path="/new-topic" user={user} updateTopics={updateTopics} />
       <SignUp path="/sign-up" setUser={setUser} />
-      <ArticleList path="/" topic={topic} user={user} />
-      <ArticleList path="/articles" topic={topic} user={user} />
+      <ArticleList path="/" topic={topic} user={user} updateHeader={props.updateHeader} />
+      <ArticleList path="/articles" topic={topic} user={user} updateHeader={props.updateHeader} />
       <Error path="/error" default />
     </Router>
   )
