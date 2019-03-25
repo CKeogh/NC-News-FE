@@ -47,7 +47,7 @@ textarea {
 .header {
   grid-area: header;
   color: white;
-  background: hsl(353, 71%, 43%);
+  background: #BA1F31;
   padding: auto;
 }
 
@@ -482,6 +482,7 @@ ul {
   position: relative;
   width: 64px;
   height: 64px;
+  margin: 0 50%;
 }
 .lds-ellipsis div {
   position: absolute;
@@ -537,7 +538,6 @@ ul {
   width: 200px;
   right: 0;
 }
-
 
 @media only screen and (max-width: 600px) {
   .App {
