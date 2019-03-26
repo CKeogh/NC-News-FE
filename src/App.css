@@ -321,13 +321,13 @@ textarea {
   display: grid;
   grid-template: 1fr / 2fr 1fr 1fr;
   grid-template-areas: 
-  'text avatarImg logout';
+  'userText avatarImg logout';
   height: 60px;
   /* justify-content: center; */
 }
 
 .userHead-text {
-  grid-area: text;
+  grid-area: userText;
   font-size: 0.8em;
   justify-self: center;
   align-self: center;
@@ -720,6 +720,7 @@ ul {
   #sideBar-small {
     visibility: visible;
     position: relative;
+    text-align: right;
   }
 
   .floatBar {
@@ -746,6 +747,38 @@ ul {
     /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
   }
 
+  .userHead {
+    display: grid;
+    grid-template: 1fr / 2fr 1fr 1fr;
+    grid-template-areas: 
+    'avatarImg userText logout';
+    height: 60px;
+  }
+  
+  .userHead-text {
+    grid-area: userText;
+    font-size: 0.8em;
+    text-align: right;
+  }
+  
+  .userHead-avatarImg {
+    grid-area: avatarImg;
+    height: 3em;
+    width: auto;
+    border-radius: 50%;
+    background-clip: padding-box;
+    justify-self: right;
+    align-self: center;
+  }
+  
+  
+  .userHead-logout {
+    grid-area: logout;
+    height: 25px;
+    justify-self: right;
+    margin: 5px;
+    align-self: center;
+  }
 
   .newTopic-slug-input {
     width: 30vw;

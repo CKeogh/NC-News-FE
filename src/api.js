@@ -20,7 +20,7 @@ export const getArticle = async (article_id) => {
 }
 
 export const getComments = async (article_id) => {
-    const { data } = await request.get(`/articles/${article_id}/comments`);
+    const { data } = await request.get(`/articles/${article_id}/comments`, { params: { sort_by: 'votes', order: 'desc' } });
     return data.comments;
 }
 
