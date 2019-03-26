@@ -10,7 +10,6 @@ class ArticleList extends Component {
     articles: [],
     order: 'date',
     orderBy: 'desc',
-    isUpdated: false,
     isLoading: true
   }
 
@@ -60,10 +59,7 @@ class ArticleList extends Component {
     if (prevState.order !== this.state.order || prevState.orderBy !== this.state.orderBy || this.state.isUpdated) {
       getArticles(this.props.topic, this.state.order, this.state.orderBy)
         .then(articles => {
-          this.setState({
-            articles,
-            isUpdated: false
-          })
+          this.setState({ articles })
         })
         .catch(err => {
           navigate('/error')

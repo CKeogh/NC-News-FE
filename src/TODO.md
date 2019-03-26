@@ -3,12 +3,12 @@
 1. ~~fix floatbar bug~~
 2. **loading icon for login?**
 3. ~~comments not in any order~~
-4. remove isUpdating 
-5. extract any utils and write tests
+4. ~~remove isUpdating~~
+5. ~~extract any utils and write tests~~
 6. header router
 7. isolate whole vote component?
 8. stop scroll on re-render
-9. tidy layout of mobile floatbar
+9. ~~tidy layout of mobile floatbar~~
 * readme!
 
 # jonny's notes

@@ -9,10 +9,10 @@ import Error from './Error';
 import TopicsList from './TopicsList';
 
 const MainContent = (props) => {
-  const { topics, user, updateTopics, setUser, topic } = props
+  const { topics, user, updateTopics, setUser, topic, updateHeader } = props
   return (
     <Router>
-      <Article path="/articles/:article_id" user={user} />
+      <Article path="/articles/:article_id" user={user} updateHeader={updateHeader} />
       <TopicsList path="/topics" topics={topics} />
       <NewArticle path="/new-article" topics={topics} user={user} />
       <NewTopic path="/new-topic" user={user} updateTopics={updateTopics} />

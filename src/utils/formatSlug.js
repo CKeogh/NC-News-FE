@@ -1,5 +1,3 @@
-const formatSlug = (title) => {
+export const formatSlug = (title) => {
     return title.split(' ').join('-');
 }
-
-export default formatSlug;

@@ -35,7 +35,7 @@ textarea {
 
 .App {
   display: grid;
-  grid-template: 15em 3em 7fr 10em / 3fr 1fr;
+  grid-template: 3fr 3em 7fr 10em / 3fr 1fr;
   grid-template-areas: 
   'header header'
   'navBar navBar'
@@ -684,12 +684,12 @@ ul {
   }
 
   .title {
-    font-size: 3em;
+    font-size: 2em;
     margin: 100px 30px 0px 30px;
   }
 
   .subtitle {
-    font-size: 2em;
+    font-size: 1.5em;
     color: rgb(182, 182, 182);
     margin: 30px;
   }

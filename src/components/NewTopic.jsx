@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { postTopic } from '../api';
 import { navigate } from '@reach/router';
-import formatSlug from '../utils/formatSlug';
+import { formatSlug } from '../utils/formatSlug';
 
 class NewTopic extends Component {
 
