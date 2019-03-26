@@ -594,12 +594,17 @@ ul {
 
 
 /* LOADING ICON */
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .lds-ellipsis {
   display: inline-block;
   position: relative;
   width: 64px;
   height: 64px;
-  margin: 0 50%;
 }
 .lds-ellipsis div {
   position: absolute;
@@ -719,6 +724,9 @@ ul {
 
   .floatBar {
     position: fixed;
+    /* top: 0;
+    left: 0;
+    right: 0; */
     width: 100vw;
     color: white;
     background: rgb(56, 56, 56);

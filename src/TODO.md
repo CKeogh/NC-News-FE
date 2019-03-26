@@ -1,17 +1,14 @@
 # TODO
 
-1. fix no username error issue
-    * do something else if necessary
-2. ~~avoid alerts~~
+1. fix floatbar bug
+2. loading icon for login?
 3. comments not in any order
-4. ~~css for new topic~~
-4. ~~css for post article~~
-5. add sidebar to floatbar
-6. ~~add vote up and down to articleCards?~~
-7. 
-8. readme!
-9. go through notes
-
+4. remove isUpdating 
+5. extract any utils and write tests
+6. header router
+7. isolate whole vote component?
+8. stop scroll on re-render
+* readme!
 
 # jonny's notes
 
@@ -29,7 +26,7 @@ In comment card, ‘0’ looks a bit weird out of context (presumably number of 
 
 * ~~I like the login fixed area, but at narrow widths it will always overlay the header.~~
 
-* **Your like / dislike buttons should not appear to do anything when they are not doing anything (disable?)**
+* ~~**Your like / dislike buttons should not appear to do anything when they are not doing anything (disable?)**~~
 
 * ~~Default button styling could be improved.~~
 
@@ -42,7 +39,7 @@ In comment card, ‘0’ looks a bit weird out of context (presumably number of 
 * ~~**No affordance on post new article page.**~~
 
 * ~~Going to a non-existent topic doesn’t render the header for some reason.~~
-* **??Getting a non-existent article keeps loading forever.??**
+* ~~**??Getting a non-existent article keeps loading forever.??**~~
 * ~~I’d rather a media query put the sidebar somewhere else for narrow widths but you just about get away with it.~~
 
 
