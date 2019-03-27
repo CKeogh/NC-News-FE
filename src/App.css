@@ -124,7 +124,7 @@ textarea {
   padding: 0.5em;
   margin: 0.2em;
   display: grid;
-  grid-template: 2fr 1fr 1fr / 6fr 2fr;
+  grid-template: 2fr 1fr 1fr / 6fr 7em;
   grid-template-areas: 
   'title title'
   'author article_info'
