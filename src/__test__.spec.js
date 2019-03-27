@@ -30,4 +30,7 @@ describe('formatSlug', () => {
     it('should replace spaces with hyphens', () => {
         expect(formatSlug('hello world')).toBe('hello-world')
     });
+    it('should remove any leading or trailing spaces', () => {
+        expect(formatSlug(' hello world ')).toBe('hello-world');
+    });
 });
