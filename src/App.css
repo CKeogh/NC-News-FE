@@ -64,7 +64,6 @@ textarea {
 
 .navBar {
   grid-area: navBar;
-  /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
   font-size: 2em;
   background: #BA1F31;
   padding: 0 20px;
@@ -76,7 +75,6 @@ textarea {
 
 .mainContent {
   grid-area: mainContent;
-  /* border: 0.1em solid rgba(17, 0, 255, 0.473); */
   background: hsl(0, 0%, 19%);
   color: white;
   padding: 10px;
@@ -84,16 +82,13 @@ textarea {
 
 #sideBar-big {
   grid-area: sideBar;
-  /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
   background: #2A3132;
   color: white;
 }
 
 .footer {
   grid-area: footer;
-  /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
   background: #BA1F31;
-  ;
   display: grid;
   grid-template-columns: 5fr 1fr;
   grid-template-areas: '. githubLink'
@@ -253,7 +248,6 @@ textarea {
   grid-area: newTopic-desc-input;
   margin: 10px 0;
   width: 300px;
-
 }
 
 .newTopic-submit {
@@ -269,10 +263,6 @@ textarea {
   color: white;
   background: rgb(56, 56, 56);
   border-radius: 0 0 0 1em;
-
-
-  /* display: grid;
-  grid-template-columns: 3fr 1fr  */
 }
 
 .login {
@@ -282,7 +272,6 @@ textarea {
   'label input input'
   '. login-button signup-button';
   height: 60px;
-  /* justify-content: center; */
 }
 
 #username-label {
@@ -323,7 +312,6 @@ textarea {
   grid-template-areas: 
   'userText avatarImg logout';
   height: 60px;
-  /* justify-content: center; */
 }
 
 .userHead-text {
@@ -373,7 +361,6 @@ textarea {
   transition: transform 0.1s ease;
   transform-origin: 10%;
   color: white;
-  /* border: 0.1em solid rgba(18, 170, 132, 0.473); */
 }
 
 .link:hover {
@@ -594,7 +581,6 @@ ul {
 
 
 /* LOADING ICON */
-
 .loadingContainer {
   display: flex;
   justify-content: center;
@@ -680,7 +666,6 @@ ul {
 
   .header {
     grid-area: header;
-    /* background: url('https://lifesignsblog.com/wp-content/uploads/2016/01/header-background.jpg') */
   }
 
   .title {
@@ -696,13 +681,11 @@ ul {
 
   .navBar {
     grid-area: navBar;
-    /* border: 0.1em solid rgba(255, 0, 55, 0.849); */
     font-size: 2em;
   }
 
   .mainContent {
     grid-area: mainContent;
-    /* border: 0.1em solid rgba(17, 0, 255, 0.473); */
     background: hsl(187, 9%, 18%);
     color: white;
     padding: 5px;
@@ -710,7 +693,6 @@ ul {
 
   #sideBar-big {
     grid-area: sideBar;
-    /* border: 0.1em solid rgba(255, 196, 0, 0.473); */
     background: hsl(187, 9%, 18%);
     color: white;
     visibility: hidden;
@@ -725,9 +707,6 @@ ul {
 
   .floatBar {
     position: fixed;
-    /* top: 0;
-    left: 0;
-    right: 0; */
     width: 100vw;
     color: white;
     background: rgb(56, 56, 56);
@@ -744,7 +723,6 @@ ul {
 
   .footer {
     grid-area: footer;
-    /* border: 0.1em solid rgba(0, 255, 221, 0.473); */
   }
 
   .userHead {
