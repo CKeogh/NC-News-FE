@@ -15,6 +15,41 @@ Users are able to:
 * delete their own articles when logged in
 * delete their own comments when logged in
 
+A live deployed version of this app can be found at https://ck-nc-news.netlify.com/
+
 ## Running Locally
 
-To install the application locally for development and testing purposes you will first need to fork this repository and then clone to your local machine. Next you will need to cd to the local directory that the repo was cloned to and ensure the following dependencies are installed:
+To install the application locally for development and testing purposes you will first need to fork this repository and then clone to your local machine. Next, cd to the local directory that the repo was cloned to and run the following script in the terminal to ensure all the correct dependencies are installed:
+```
+npm install
+```
+
+Then, to launch the app in the browser run:
+```
+npm start
+```
+
+## Testing and Development
+
+To run the test suites, use ```npm test```. This will run using the *Jest* testing framework. The documentation can be found here:
+https://jestjs.io/docs/en/getting-started
+
+The file ```__test__.spec.js``` is made up of unit tests of the utility functions found in the ```utils``` directory
+
+## **CYPRESS????????**
+### development
+
+The back end to this application can be viewed here:
+https://ck-nc-knews.herokuapp.com/api, along with a breakdown of all the available endpoints.
+
+All of the api requests are extracted to the file ```api.js``` and are made using the *Axios* library.
+The documentation for which can be viewed at https://github.com/axios/axios.
+
+
+## Author
+
+This application was built by [Chris Keogh](https://github.com/CKeogh).
+
+## Acknowledgments
+
+All the tutors, staff, and fellow students at Northcoders.
