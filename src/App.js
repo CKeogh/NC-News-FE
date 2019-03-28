@@ -81,6 +81,7 @@ class App extends Component {
     if (newUser === '') {
       this.setState({ currentUser: newUser })
     } else {
+      this.setState({ currentUser: '_' })
       getUser(newUser)
         .then((data) => {
           const currentUser = data.user.username
@@ -88,6 +89,7 @@ class App extends Component {
           this.setState({ userData, currentUser })
         })
         .catch(err => {
+          this.setState({ currentUser: '' });
           navigate('/error', { state: { message: `user doesn't exist` } })
         })
     }

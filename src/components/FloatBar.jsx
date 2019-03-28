@@ -8,7 +8,7 @@ const FloatBar = ({ setUser, user, userData }) => {
   return (
     <div className="floatBar">
       <AuthUser user={user}>
-        <UserHead setUser={setUser} userData={userData} />
+        <UserHead user={user} setUser={setUser} userData={userData} />
         <Login setUser={setUser} />
       </AuthUser>
       <SideBar id="sideBar-small" user={user} />
