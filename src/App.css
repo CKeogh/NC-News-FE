@@ -78,6 +78,7 @@ textarea {
   background: hsl(0, 0%, 19%);
   color: white;
   padding: 10px;
+  min-height: 400px;
 }
 
 #sideBar-big {
@@ -390,6 +391,7 @@ ul {
 .loginPrompt {
   text-align: center;
   color: grey;
+  padding:10px;
 }
 
 #newArticle {

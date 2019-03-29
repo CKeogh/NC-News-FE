@@ -1,7 +1,6 @@
 # TODO
 
-1. **loading icon for login?**
-2. header router
+1. ~~**loading icon for login?**~~
 3. stop scroll on re-render
 4. animation
 5. readme!
