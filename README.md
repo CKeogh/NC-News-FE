@@ -45,7 +45,7 @@ All of the api requests are extracted to the file ```api.js``` and are made usin
 The documentation for which can be viewed at https://github.com/axios/axios.
 
 To view the Github repo for the back end of this project follow this link:
-https://github.com/CKeogh/BE2-NC-Knews
+https://github.com/CKeogh/NC-News-BE
 
 
 ## Author
