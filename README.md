@@ -36,7 +36,6 @@ https://jestjs.io/docs/en/getting-started
 
 The file ```__test__.spec.js``` is made up of unit tests of the utility functions found in the ```utils``` directory
 
-## **CYPRESS????????**
 ### development
 
 The back end to this application can be viewed here:
@@ -44,6 +43,9 @@ https://ck-nc-knews.herokuapp.com/api, along with a breakdown of all the availab
 
 All of the api requests are extracted to the file ```api.js``` and are made using the *Axios* library.
 The documentation for which can be viewed at https://github.com/axios/axios.
+
+To view the Github repo for the back end of this project follow this link:
+https://github.com/CKeogh/BE2-NC-Knews
 
 
 ## Author

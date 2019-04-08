@@ -10,7 +10,6 @@ class NewComment extends Component {
         }
     }
 
-
     render() {
         return (
             <form className="newComment">

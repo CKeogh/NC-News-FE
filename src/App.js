@@ -72,11 +72,6 @@ class App extends Component {
       })
   }
 
-  // updateHeader = (title, subtitle) => {
-  //   console.log('header updated!')
-  //   this.setState({ title, subtitle })
-  // }
-
   setUser = (newUser) => {
     if (newUser === '') {
       this.setState({ currentUser: newUser })

@@ -60,9 +60,6 @@ class NewArticle extends Component {
                 })
         }
     }
-
-
-
 }
 
 
