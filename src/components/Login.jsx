@@ -12,7 +12,9 @@ class Login extends Component {
                 <label id="username-label" htmlFor="usernameInput">username: </label>
                 <input required onChange={this.handleChange} placeholder="example: jessjelly" id="username-input"></input>
                 <button id="login-button" onClick={() => { this.props.setUser(this.state.username) }}>login</button>
-                <Link id="signup-button" to="/sign-up"><button>sign up</button></Link>
+                <div id="signup">
+                    <Link to="/sign-up"><button id="signup-button">sign up</button></Link>
+                </div>
             </div>
         )
     }
