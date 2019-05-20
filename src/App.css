@@ -77,6 +77,7 @@ textarea {
   grid-area: mainContent;
   background: hsl(0, 0%, 19%);
   color: white;
+  /* color: grey; */
   padding: 10px;
 }
 
@@ -282,6 +283,8 @@ textarea {
 }
 
 #username-input {
+  border: none;
+  padding: 2px 3px;
   border-radius: 5px;
   grid-area: input;
   font-size: 0.8em;
